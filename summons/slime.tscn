@@ -65,10 +65,10 @@ radius = 109.005
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfxq6"]
 size = Vector2(13, 13)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uarjh"]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukp5g"]
+height = 32.0
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_6e024")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -91,7 +91,12 @@ shape = SubResource("RectangleShape2D_cfxq6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectionArea"]
 light_mask = 2
 visibility_layer = 2
-shape = SubResource("CircleShape2D_uarjh")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ukp5g")
+
+[node name="InfoLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

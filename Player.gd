@@ -18,7 +18,7 @@ var max_health = 100.0
 var curr_health = 100.0
 
 func _ready():
-	animSprite.play("idle")	
+	animSprite.play("idle")
 
 func update_sprite_animation(xVelocity):
 	if animSprite.animation == "attack":
@@ -42,15 +42,14 @@ func _physics_process(delta):
 		update_sprite_animation(velocity.x)
 	elif animSprite.animation != "attack":
 		animSprite.play("idle")
-		
+
 	var attack = Input.is_action_just_released("attack")
-	if(attack):
-		print(name)
+	if attack:
 		animSprite.play("attack")
 		var bodies = swordArea.get_overlapping_bodies()
 		for b in bodies:
-			if b.name == "dummy":
-				b.takeDamage(25)
+			if b.is_in_group("enemy"):
+				b.take_damage(25)
 
 	move_and_slide()
 	update_health_label()
@@ -62,3 +61,8 @@ func update_health_label():
 
 func _on_animation_finished():
 	animSprite.play("idle")
+	
+func take_damage(damage):
+	curr_health -= damage
+	if curr_health < 0:
+		pass # Death happens here
