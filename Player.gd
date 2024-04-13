@@ -14,8 +14,10 @@ var healthLabel = $HealthLabel
 
 const SPEED = 300.0
 
+var attack_cooldown = 30
 var max_health = 100.0
 var curr_health = 100.0
+var curr_attack_cooldown = 0
 
 func _ready():
 	animSprite.play("idle")
@@ -44,12 +46,16 @@ func _physics_process(delta):
 		animSprite.play("idle")
 
 	var attack = Input.is_action_just_released("attack")
-	if attack:
+	if attack and curr_attack_cooldown == 0:
 		animSprite.play("attack")
 		var bodies = swordArea.get_overlapping_bodies()
 		for b in bodies:
 			if b.is_in_group("enemy"):
 				b.take_damage(25)
+		curr_attack_cooldown = attack_cooldown
+	
+	if curr_attack_cooldown > 0:
+		curr_attack_cooldown -= 1
 
 	move_and_slide()
 	update_health_label()

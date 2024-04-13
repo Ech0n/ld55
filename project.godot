@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Ld 55"
+<<<<<<< HEAD
 run/main_scene="res://world.tscn"
+=======
+run/main_scene="res://workspace/playground.tscn"
+>>>>>>> 8f76bf9bc4742dffbb05d0aad7538c9398e23f20
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -51,3 +55,4 @@ attack={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0627451, 0.0705882, 0.109804, 1)
