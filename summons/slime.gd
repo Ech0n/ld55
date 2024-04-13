@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-var speed = 25.0
+var speed = 20.0
 var player = null
 var in_attack_range = false
 var curr_health = 50
+var attack_cooldown = 0
 
 @onready
 var animSprite = $AnimatedSprite2D
@@ -15,7 +16,7 @@ func _ready():
 func update_sprite_animation():
 	if in_attack_range:
 		animSprite.play("attack")
-		player.curr_health -= 10
+		attack_player()
 		return
 		
 	animSprite.play("walk")
@@ -23,6 +24,14 @@ func update_sprite_animation():
 		animSprite.flip_h = true
 	if player.position.x - position.x > 0:
 		animSprite.flip_h = false
+
+
+func attack_player():
+	if attack_cooldown == 0:
+		player.curr_health -= 10
+		attack_cooldown = 50 
+	else:
+		attack_cooldown -= 1
 
 
 func _physics_process(delta):

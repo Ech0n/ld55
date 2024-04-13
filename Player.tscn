@@ -118,6 +118,7 @@ radius = 12.0
 height = 28.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 3
 script = ExtResource("1_8ufmy")
 
@@ -147,5 +148,12 @@ zoom = Vector2(3, 3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickupArea"]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_ufjlc")
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -44.0
+offset_right = 24.0
+offset_bottom = -21.0
+text = "CHUUUJ"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

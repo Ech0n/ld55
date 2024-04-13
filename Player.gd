@@ -9,6 +9,9 @@ var swordArea = $AnimatedSprite2D/swordArea
 @onready
 var playerColider = $colider
 
+@onready
+var healthLabel = $HealthLabel
+
 const SPEED = 300.0
 
 var max_health = 100.0
@@ -35,7 +38,7 @@ func _physics_process(delta):
 	
 	velocity = direction.normalized() * SPEED
 	
-	if velocity and animSprite:		
+	if velocity and animSprite:
 		update_sprite_animation(velocity.x)
 	elif animSprite.animation != "attack":
 		animSprite.play("idle")
@@ -49,6 +52,11 @@ func _physics_process(delta):
 				b.takeDamage(25)
 
 	move_and_slide()
+	update_health_label()
+
+func update_health_label():
+	healthLabel.text = "Health: %d" % curr_health
+	healthLabel.position = Vector2(0, -50)
 
 
 func _on_animation_finished():
