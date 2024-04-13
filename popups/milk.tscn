@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ci2deppek7pft"]
+
+[node name="@Control@109134" type="Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
