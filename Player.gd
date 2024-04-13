@@ -3,6 +3,12 @@ extends CharacterBody2D
 @onready
 var animSprite = $AnimatedSprite2D
 
+@onready
+var swordArea = $AnimatedSprite2D/swordArea
+
+@onready
+var playerColider = $colider
+
 const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0
 
@@ -18,9 +24,9 @@ func update_sprite_animation(xVelocity):
 		
 	animSprite.play("walk")	
 	if xVelocity <0:
-		animSprite.flip_h = true
+		animSprite.scale.x = -1
 	if xVelocity >0:
-		animSprite.flip_h = false
+		animSprite.scale.x = 1
 
 func _physics_process(delta):
 
@@ -38,6 +44,10 @@ func _physics_process(delta):
 	var attack = Input.is_action_just_released("attack")
 	if(attack):
 		animSprite.play("attack")
+		var bodies = swordArea.get_overlapping_bodies()
+		for b in bodies:
+			if b.name == "dummy":
+				b.takeDamage(25)
 
 	move_and_slide()
 
