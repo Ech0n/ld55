@@ -57,5 +57,5 @@ func _on_animation_finished():
 
 
 func _on_pickup_area_body_entered(body):
-	
-	pass # Replace with function body.
+	if body.has_method("random_items"):
+		body.random_items()
