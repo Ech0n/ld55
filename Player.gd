@@ -10,10 +10,9 @@ var swordArea = $AnimatedSprite2D/swordArea
 var playerColider = $colider
 
 const SPEED = 300.0
-#const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var max_health = 100.0
+var curr_health = 100.0
 
 func _ready():
 	animSprite.play("idle")	

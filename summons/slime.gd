@@ -15,6 +15,7 @@ func _ready():
 func update_sprite_animation():
 	if in_attack_range:
 		animSprite.play("attack")
+		player.curr_health -= 10
 		return
 		
 	animSprite.play("walk")
