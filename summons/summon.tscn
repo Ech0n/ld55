@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://d353tpxog3ra2"]
+
+[ext_resource type="Script" path="res://summon/summon.gd" id="1_yfdp3"]
+[ext_resource type="PackedScene" uid="uid://dsire7cgplmo7" path="res://summon/projectile.tscn" id="2_1l7c7"]
+[ext_resource type="Texture2D" uid="uid://b4enbs0f4gwex" path="res://assets/spirit.png" id="2_c5jsu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2lnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c5jsu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofnh7"]
+radius = 7.0
+
+[node name="summon" type="CharacterBody2D"]
+position = Vector2(-56, -1)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_yfdp3")
+Bullet = ExtResource("2_1l7c7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_b2lnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ofnh7")

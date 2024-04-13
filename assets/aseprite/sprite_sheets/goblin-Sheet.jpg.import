@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfy6wyeio0y3b"
-path="res://.godot/imported/goblin-Sheet.png-55ceb606d623e1f9d9361c2afaa09293.ctex"
+uid="uid://u6o2wbtd2xuv"
+path="res://.godot/imported/goblin-Sheet.jpg-bea10417b005f4ed54d17a4d48ab3cf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/goblin-Sheet.png"
-dest_files=["res://.godot/imported/goblin-Sheet.png-55ceb606d623e1f9d9361c2afaa09293.ctex"]
+source_file="res://assets/aseprite/sprite_sheets/goblin-Sheet.jpg"
+dest_files=["res://.godot/imported/goblin-Sheet.jpg-bea10417b005f4ed54d17a4d48ab3cf8.ctex"]
 
 [params]
 

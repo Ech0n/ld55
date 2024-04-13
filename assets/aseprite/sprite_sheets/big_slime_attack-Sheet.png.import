@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk7v1d64ai7qm"
-path="res://.godot/imported/magic_projectile1.png-62ddf56fd01f746b460dbb1205f51a91.ctex"
+uid="uid://cp0byka50w8x1"
+path="res://.godot/imported/big_slime_attack-Sheet.png-c7e36572fb3f6e1c745cf8d8e9503bed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/projectiles/magic_projectile1.png"
-dest_files=["res://.godot/imported/magic_projectile1.png-62ddf56fd01f746b460dbb1205f51a91.ctex"]
+source_file="res://assets/aseprite/sprite_sheets/big_slime_attack-Sheet.png"
+dest_files=["res://.godot/imported/big_slime_attack-Sheet.png-c7e36572fb3f6e1c745cf8d8e9503bed.ctex"]
 
 [params]
 

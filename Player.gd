@@ -9,14 +9,16 @@ var swordArea = $AnimatedSprite2D/swordArea
 @onready
 var playerColider = $colider
 
-const SPEED = 300.0
-#const JUMP_VELOCITY = -400.0
+@onready
+var healthLabel = $HealthLabel
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const SPEED = 300.0
+
+var max_health = 100.0
+var curr_health = 100.0
 
 func _ready():
-	animSprite.play("idle")	
+	animSprite.play("idle")
 
 func update_sprite_animation(xVelocity):
 	if animSprite.animation == "attack":
@@ -36,20 +38,25 @@ func _physics_process(delta):
 	
 	velocity = direction.normalized() * SPEED
 	
-	if velocity and animSprite:		
+	if velocity and animSprite:
 		update_sprite_animation(velocity.x)
 	elif animSprite.animation != "attack":
 		animSprite.play("idle")
-		
+
 	var attack = Input.is_action_just_released("attack")
-	if(attack):
+	if attack:
 		animSprite.play("attack")
 		var bodies = swordArea.get_overlapping_bodies()
 		for b in bodies:
-			if b.name == "dummy":
-				b.takeDamage(25)
+			if b.is_in_group("enemy"):
+				b.take_damage(25)
 
 	move_and_slide()
+	update_health_label()
+
+func update_health_label():
+	healthLabel.text = "Health: %d" % curr_health
+	healthLabel.position = Vector2(0, -50)
 
 
 func _on_animation_finished():
@@ -59,3 +66,8 @@ func _on_animation_finished():
 func _on_pickup_area_body_entered(body):
 	if body.has_method("random_items"):
 		body.random_items()
+	
+func take_damage(damage):
+	curr_health -= damage
+	if curr_health < 0:
+		pass # Death happens here
