@@ -77,7 +77,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cggep")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 24.0
 }, {
@@ -116,13 +116,12 @@ script = ExtResource("1_8ufmy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_7d55y")
-animation = &"attack"
+animation = &"walk"
+frame_progress = 0.538119
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_ho80f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+zoom = Vector2(2, 2)
