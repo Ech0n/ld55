@@ -7,6 +7,5 @@ var SPEED : float = 500.0
 var player : Node2D
 
 func _physics_process(delta):
-		
-	global_transform.origin = lerp(global_transform.origin, player.position, delta)
+	global_transform.origin = lerp(global_transform.origin, player.transform.origin, delta)
 	
