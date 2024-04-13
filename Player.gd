@@ -54,3 +54,8 @@ func _physics_process(delta):
 
 func _on_animation_finished():
 	animSprite.play("idle")
+
+
+func _on_pickup_area_body_entered(body):
+	
+	pass # Replace with function body.
