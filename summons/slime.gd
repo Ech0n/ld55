@@ -14,11 +14,6 @@ func _ready():
 
 
 func update_sprite_animation():
-	if in_attack_range:
-		animSprite.play("attack")
-		attack_player()
-		return
-		
 	animSprite.play("walk")
 	if (player.position.x - position.x < 0):
 		animSprite.flip_h = true
@@ -36,21 +31,29 @@ func attack_player():
 
 func _physics_process(delta):
 	if player:
+		if in_attack_range:
+			animSprite.play("attack")
+			attack_player()
+			return
 		position += (player.position - position) / speed
 		update_sprite_animation()
 
 
 func _on_detection_area_body_entered(body):
-	player = body
+	if body.name == "Player":
+		player = body
 
 
 func _on_detection_area_body_exited(body):
-	player = null
+	if body.name == "Player":
+		player = null
 
 
 func _on_attack_detection_area_body_entered(body):
-	in_attack_range = true
+	if body.name == "Player":
+		in_attack_range = true
 
 
 func _on_attack_detection_area_body_exited(body):
-	in_attack_range = false
+	if body.name == "Player":
+		in_attack_range = false

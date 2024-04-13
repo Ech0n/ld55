@@ -45,6 +45,7 @@ func _physics_process(delta):
 		
 	var attack = Input.is_action_just_released("attack")
 	if(attack):
+		print(name)
 		animSprite.play("attack")
 		var bodies = swordArea.get_overlapping_bodies()
 		for b in bodies:

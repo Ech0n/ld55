@@ -66,7 +66,7 @@ radius = 109.005
 size = Vector2(13, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uarjh"]
-radius = 22.0
+radius = 14.0
 
 [node name="Slime" type="CharacterBody2D"]
 script = ExtResource("1_6e024")
@@ -89,6 +89,8 @@ shape = SubResource("RectangleShape2D_cfxq6")
 [node name="AttackDetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectionArea"]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("CircleShape2D_uarjh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
