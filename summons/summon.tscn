@@ -19,7 +19,6 @@ animations = [{
 radius = 7.0
 
 [node name="summon" type="CharacterBody2D"]
-position = Vector2(-56, -1)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_yfdp3")

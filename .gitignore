@@ -2,3 +2,4 @@
 .godot/
 workspace/
 assets/aseprite
+*.imports

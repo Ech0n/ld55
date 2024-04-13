@@ -67,6 +67,11 @@ func update_health_label():
 
 func _on_animation_finished():
 	animSprite.play("idle")
+
+
+func _on_pickup_area_body_entered(body):
+	if body.has_method("random_items"):
+		body.random_items()
 	
 func take_damage(damage):
 	curr_health -= damage
