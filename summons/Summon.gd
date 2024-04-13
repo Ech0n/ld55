@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export
-var SPEED : float = 500.0
+@export var SPEED : float = 500.0
+var damage : float = 10
 
 @export
 var player : Node2D
@@ -10,9 +10,9 @@ var player : Node2D
 
 func shoot():
 	var b = Bullet.instantiate()
+	b.damage = damage
 	add_child(b)
 	b.set_target(position.direction_to(get_global_mouse_position()))
-	print(position)
 
 func _physics_process(delta):
 	if player:

@@ -26,7 +26,7 @@ func update_sprite_animation(xVelocity):
 	if animSprite.animation == "attack":
 		return
 		
-	animSprite.play("walk")	
+	animSprite.play("walk")
 	if xVelocity <0:
 		animSprite.scale.x = -1
 	if xVelocity >0:

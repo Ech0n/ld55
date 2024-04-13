@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d353tpxog3ra2"]
 
-[ext_resource type="Script" path="res://summon/summon.gd" id="1_yfdp3"]
-[ext_resource type="PackedScene" uid="uid://dsire7cgplmo7" path="res://summon/projectile.tscn" id="2_1l7c7"]
-[ext_resource type="Texture2D" uid="uid://b4enbs0f4gwex" path="res://assets/spirit.png" id="2_c5jsu"]
+[ext_resource type="Script" path="res://summons/Summon.gd" id="1_yfdp3"]
+[ext_resource type="PackedScene" uid="uid://dsire7cgplmo7" path="res://summons/projectiles/SummonProjectile.tscn" id="2_1l7c7"]
+[ext_resource type="Texture2D" uid="uid://c0vyle3trfee5" path="res://assets/spirit.png" id="2_c5jsu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b2lnt"]
 animations = [{

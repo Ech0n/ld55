@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-var speed = 0 # Lower value =  Higher walkspeed
-var player = null
-var in_attack_range = false
-var curr_health = 0
-var attack_cooldown = 0
-var damage = 0
+var speed : float = 0.0 # Lower value =  Higher walkspeed
+var player : Node2D = null
+var in_attack_range : bool = false
+var curr_health : float = 0.0
+var attack_cooldown : float = 0
+var curr_attack_cooldown : float = 0
+var damage : float = 0
 
 @onready
 var animSprite = $AnimatedSprite2D
@@ -26,12 +27,12 @@ func update_sprite_animation():
 		animSprite.flip_h = false
 
 
-func attack_player():
-	if attack_cooldown == 0:
+func attack_player(): # This has to be overriden in order to work for ranged enemies
+	if curr_attack_cooldown == 0:
 		player.take_damage(damage)
-		attack_cooldown = 50 
+		curr_attack_cooldown = attack_cooldown
 	else:
-		attack_cooldown -= 1
+		curr_attack_cooldown -= 1
 
 
 func _physics_process(delta):
@@ -43,6 +44,7 @@ func _physics_process(delta):
 			attack_player()
 			animSprite.play("attack")
 			return
+		
 		position += (player.position - position) / speed
 		update_sprite_animation()
 
@@ -66,7 +68,7 @@ func _on_attack_detection_area_body_exited(body):
 	if body.is_in_group("player"):
 		in_attack_range = false
 
-func take_damage(damage):
+func take_damage(damage : float):
 	curr_health -= damage
 	if curr_health <= 0:
 		print(name + " DEATH")
