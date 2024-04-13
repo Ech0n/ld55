@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7qikvm577rkw"]
+[gd_scene load_steps=16 format=3 uid="uid://b7qikvm577rkw"]
 
 [ext_resource type="Script" path="res://summons/FireCreature.gd" id="1_jg34u"]
 [ext_resource type="PackedScene" uid="uid://dl414vqhvkixb" path="res://summons/projectiles/FireProjectile.tscn" id="2_3uhfn"]
@@ -70,6 +70,10 @@ size = Vector2(13.5, 22)
 radius = 192.0
 height = 384.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qywha"]
+radius = 8.0
+height = 24.0
+
 [node name="FireCreature" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_jg34u")
 Bullet = ExtResource("2_3uhfn")
@@ -105,7 +109,16 @@ offset_top = -30.0
 offset_right = 20.0
 offset_bottom = -7.0
 
+[node name="TouchingArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingArea"]
+shape = SubResource("CapsuleShape2D_qywha")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_entered"]
 [connection signal="body_exited" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_exited"]
+[connection signal="body_entered" from="TouchingArea" to="." method="_on_touching_area_body_entered"]
+[connection signal="body_exited" from="TouchingArea" to="." method="_on_touching_area_body_exited"]

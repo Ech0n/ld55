@@ -2,7 +2,7 @@ class_name Slime
 extends "EnemyInterface.gd"
 
 func _init():
-	speed = 50.0
+	speed = 1.2
 	player = null
 	in_attack_range = false
 	curr_health = 50

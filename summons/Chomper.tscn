@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jh177pu1xvm8"]
+[gd_scene load_steps=15 format=3 uid="uid://jh177pu1xvm8"]
 
 [ext_resource type="Script" path="res://summons/Chomper.gd" id="1_v4uu4"]
 [ext_resource type="Texture2D" uid="uid://bhutjj6vfa6xi" path="res://assets/aseprite/demon1_attack-Sheet.png" id="2_ustri"]
@@ -66,8 +66,12 @@ radius = 211.059
 size = Vector2(13, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukp5g"]
-radius = 15.0
-height = 32.0
+radius = 12.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wwofm"]
+radius = 8.0
+height = 26.0
 
 [node name="Chomper" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_v4uu4")
@@ -104,7 +108,17 @@ offset_top = -30.0
 offset_right = 20.0
 offset_bottom = -7.0
 
+[node name="TouchingArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingArea"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_wwofm")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_entered"]
 [connection signal="body_exited" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_exited"]
+[connection signal="body_entered" from="TouchingArea" to="." method="_on_touching_area_body_entered"]
+[connection signal="body_exited" from="TouchingArea" to="." method="_on_touching_area_body_exited"]

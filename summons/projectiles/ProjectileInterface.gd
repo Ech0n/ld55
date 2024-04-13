@@ -1,8 +1,7 @@
 extends Area2D
 
 var speed : float = 0
-var target
-var target_dir
+var target_dir : Vector2 = Vector2.ZERO
 var time_to_live : float = 0
 var damage : float = 0
 var is_friendly : bool = false
@@ -26,4 +25,7 @@ func _on_body_entered(body):
 	var targeted_group : String = "enemy" if is_friendly else "player"
 	if body.is_in_group(targeted_group):
 		body.take_damage(damage)
-	queue_free()
+		queue_free()
+	elif body.is_in_group("blocker"):
+		queue_free()
+	

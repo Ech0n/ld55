@@ -4,12 +4,14 @@ extends "EnemyInterface.gd"
 @export var Bullet : PackedScene
 
 func _init():
-	speed = 15.0
+	speed = 0.5
 	player = null
 	in_attack_range = false
 	curr_health = 200
 	attack_cooldown = 40
 	damage = 50
+	is_ranged = true
+	thorns_damage = 5
 
 
 func attack_player():
