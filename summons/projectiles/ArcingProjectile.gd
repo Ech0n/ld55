@@ -17,6 +17,3 @@ func _physics_process(delta):
 	time_since_start += delta
 	if time_since_start > time_to_live:
 		queue_free()
-
-func set_target(target_direction):
-	target_dir = target_direction.normalized() 
