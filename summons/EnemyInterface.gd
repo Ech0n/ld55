@@ -80,16 +80,13 @@ func _on_attack_detection_area_body_exited(body):
 
 
 func _on_touching_area_body_entered(body):
-	print("CHUJ")
 	if body.is_in_group("player"):
 		touching_player = true
-		print(touching_player)
 
 
 func _on_touching_area_body_exited(body):
 	if body.is_in_group("player"):
 		touching_player = false
-		print(touching_player)
 
 
 func take_damage(damage : float):
