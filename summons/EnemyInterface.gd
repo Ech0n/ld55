@@ -17,6 +17,9 @@ var animSprite = $AnimatedSprite2D
 @onready
 var infoLabel = $InfoLabel
 
+@onready
+var particleManager = $particler
+
 
 func _ready():
 	animSprite.play("walk")
@@ -88,6 +91,7 @@ func _on_touching_area_body_exited(body):
 
 func take_damage(damage : float):
 	curr_health -= damage
+	particleManager.restart()
 	if curr_health <= 0:
 		print(name + " DEATH")
 		queue_free()
