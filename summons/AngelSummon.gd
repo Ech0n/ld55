@@ -1,3 +1,4 @@
+#book3
 class_name AngelSummon
 extends "AllyInterface.gd"
 

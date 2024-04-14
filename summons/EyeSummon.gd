@@ -1,3 +1,4 @@
+#book1
 class_name EyeSummon
 extends "AllyInterface.gd"
 

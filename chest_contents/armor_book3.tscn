@@ -27,7 +27,7 @@ fixed_column_width = 104
 icon_mode = 0
 item_0/text = "Armor"
 item_0/icon = ExtResource("1_ottnf")
-item_1/text = "Book 3"
+item_1/text = "Blessed Book"
 item_1/icon = ExtResource("2_7bone")
 
 [node name="TextEdit" type="TextEdit" parent="ItemList"]
@@ -48,9 +48,9 @@ offset_left = 129.0
 offset_top = 64.0
 offset_right = 216.0
 offset_bottom = 169.0
-text = "Read
-know
-learn"
+text = "Summon
+angelic
+creature"
 editable = false
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
