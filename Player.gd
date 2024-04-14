@@ -12,9 +12,11 @@ var playerColider = $colider
 @onready
 var healthLabel = $HealthLabel
 
+@onready
+var footstepsPartivcler = $footstepsParticles
 
 
-const SPEED = 300.0
+const SPEED = 180.0
 
 var attack_cooldown = 30
 var max_health = 100.0
@@ -29,6 +31,7 @@ func update_sprite_animation(xVelocity):
 		return
 		
 	animSprite.play("walk")
+	footstepsPartivcler.emitting = true
 	if xVelocity <0:
 		animSprite.scale.x = -1
 	if xVelocity >0:
@@ -41,7 +44,7 @@ func _physics_process(_delta):
 	var direction = Vector2( Input.get_axis("left", "right"), Input.get_axis("up","down"))
 	
 	velocity = direction.normalized() * SPEED
-	
+	footstepsPartivcler.emitting = false
 	if velocity and animSprite:
 		update_sprite_animation(velocity.x)
 	elif animSprite.animation != "attack":

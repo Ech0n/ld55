@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Ld 55"
-run/main_scene="res://workspace/playground.tscn"
+run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 
