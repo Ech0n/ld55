@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Ld 55"
+<<<<<<< HEAD
 run/main_scene="res://world.tscn"
+=======
+run/main_scene="res://Game.tscn"
+>>>>>>> a789f8691c5411df3b0abf905a07dedbf618f4e5
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,7 +25,11 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/subwindows/embed_subwindows=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

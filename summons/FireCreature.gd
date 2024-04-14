@@ -5,8 +5,6 @@ extends "EnemyInterface.gd"
 
 func _init():
 	speed = 0.5
-	player = null
-	in_attack_range = false
 	curr_health = 200
 	attack_cooldown = 40
 	damage = 50

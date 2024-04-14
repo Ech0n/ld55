@@ -1,0 +1,170 @@
+[gd_scene load_steps=20 format=3 uid="uid://hh4a84o0ru7a"]
+
+[ext_resource type="Texture2D" uid="uid://c0ow70l6h6l67" path="res://assets/aseprite/sprite_sheets/golem_attack-Sheet.png" id="1_gm2q1"]
+[ext_resource type="Script" path="res://summons/CrystalMonster.gd" id="1_sfrs6"]
+[ext_resource type="PackedScene" uid="uid://diob3t7sjb0h6" path="res://summons/projectiles/HomingProjectile.tscn" id="2_u5xj4"]
+[ext_resource type="Texture2D" uid="uid://cm3d3ha01hsd8" path="res://assets/aseprite/sprite_sheets/golem-Sheet.png" id="3_pyggl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8lqv"]
+atlas = ExtResource("1_gm2q1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1n0y"]
+atlas = ExtResource("1_gm2q1")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp23a"]
+atlas = ExtResource("1_gm2q1")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gdy0"]
+atlas = ExtResource("1_gm2q1")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxqcn"]
+atlas = ExtResource("3_pyggl")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oaao"]
+atlas = ExtResource("3_pyggl")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no8b7"]
+atlas = ExtResource("3_pyggl")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80ugf"]
+atlas = ExtResource("3_pyggl")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cgiv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8lqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1n0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp23a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gdy0")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxqcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oaao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no8b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80ugf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6atl"]
+radius = 211.059
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfxq6"]
+size = Vector2(7, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukp5g"]
+radius = 147.0
+height = 294.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qywha"]
+radius = 4.5
+height = 19.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xntoe"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_nhf4k"]
+min_value = -1.0
+_data = [Vector2(0, 0.472528), 0.0, 0.0, 0, 0, Vector2(1, -0.384615), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CrystalMonster" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_sfrs6")
+Bullet = ExtResource("2_u5xj4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3cgiv")
+animation = &"walk"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_r6atl")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cfxq6")
+
+[node name="AttackDetectionArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectionArea"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-1.5, 0.5)
+shape = SubResource("CapsuleShape2D_ukp5g")
+
+[node name="InfoLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -7.0
+
+[node name="TouchingArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingArea"]
+shape = SubResource("CapsuleShape2D_qywha")
+
+[node name="particler" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_xntoe")
+emitting = false
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.7
+explosiveness = 0.76
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 4.18
+direction = Vector2(1, 2)
+spread = 180.0
+gravity = Vector2(0, 900)
+initial_velocity_min = 130.43
+initial_velocity_max = 141.3
+scale_amount_max = 1.5
+color = Color(0, 1, 0, 1)
+hue_variation_min = -0.37
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_nhf4k")
+anim_speed_min = 23.66
+anim_speed_max = 26.44
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_entered"]
+[connection signal="body_exited" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_exited"]
+[connection signal="body_entered" from="TouchingArea" to="." method="_on_touching_area_body_entered"]
+[connection signal="body_exited" from="TouchingArea" to="." method="_on_touching_area_body_exited"]

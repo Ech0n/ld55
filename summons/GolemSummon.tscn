@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bulgthhbplfq3"]
+
+[ext_resource type="Script" path="res://summons/GolemSummon.gd" id="1_xjyo8"]
+[ext_resource type="Texture2D" uid="uid://cey7ci4r160gd" path="res://assets/aseprite/sprite_sheets/golem_core-Sheet.png" id="2_owoua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0bjf"]
+atlas = ExtResource("2_owoua")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b5vs"]
+atlas = ExtResource("2_owoua")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwa4n"]
+atlas = ExtResource("2_owoua")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2lnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0bjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b5vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwa4n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofnh7"]
+radius = 7.0
+
+[node name="GolemSummon" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_xjyo8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_b2lnt")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ofnh7")
