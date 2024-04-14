@@ -1,3 +1,4 @@
+#book1
 class_name GolemSummon
 extends "AllyInterface.gd"
 

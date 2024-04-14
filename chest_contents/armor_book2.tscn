@@ -27,7 +27,7 @@ fixed_column_width = 104
 icon_mode = 0
 item_0/text = "Armor"
 item_0/icon = ExtResource("1_1a26o")
-item_1/text = "Book 2"
+item_1/text = "Occult Magic"
 item_1/icon = ExtResource("2_dejog")
 
 [node name="TextEdit" type="TextEdit" parent="ItemList"]
@@ -48,9 +48,9 @@ offset_left = 129.0
 offset_top = 64.0
 offset_right = 216.0
 offset_bottom = 169.0
-text = "Read
-know
-learn"
+text = "Summon
+occultic
+eye friend"
 editable = false
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

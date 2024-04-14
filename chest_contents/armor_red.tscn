@@ -48,8 +48,9 @@ offset_left = 129.0
 offset_top = 64.0
 offset_right = 216.0
 offset_bottom = 169.0
-text = "Health?
-Heal"
+text = "Heal
+yourself,
+now"
 editable = false
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

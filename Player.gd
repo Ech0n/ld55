@@ -168,7 +168,7 @@ func _process(delta):
 		
 		
 func take_damage(damage):
-	curr_health -= damage
+	curr_health -= damage/dmg_reduction
 	if curr_health < 0:
 		pass # Death happens here
 
