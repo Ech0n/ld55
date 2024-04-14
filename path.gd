@@ -6,7 +6,7 @@ var torch : PackedScene
 @export
 var gpsArrow : PackedScene
 
-@export
+@export_range(100,300)
 var activation_distance = 225
 
 @onready

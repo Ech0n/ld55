@@ -55,7 +55,6 @@ var dashDir = Vector2(1,0)
 var lastDashPos: Vector2
 
 func _physics_process(delta):
-	var t = state
 	var direction = Vector2( Input.get_axis("left", "right"), Input.get_axis("up","down"))
 	var attack = Input.is_action_just_released("attack")
 	footstepsPartivcler.emitting = false
@@ -92,15 +91,15 @@ func _physics_process(delta):
 		velocity = dashDir.normalized() * SPEED * dashSpeed
 		animSprite.play("dash")
 		lastDashPos = position
-		playerColider.disabled = true
 		if position.distance_to(dashStartPos) > dash_distance:
 			dashTimer = 0
 			state = 'idle'
 			animSprite.play("idle")
 			velocity = Vector2.ZERO
-			playerColider.disabled = false
-	
-	print(t,state)
+			set_collision_mask_value(1,true)		
+
+	#print(get_collision_layer_value(2))
+	print(state)
 	#if attack and curr_attack_cooldown == 0:
 		
 	
@@ -129,6 +128,7 @@ func getDashInput():
 		return false
 	var d = Input.is_action_just_pressed("dash")
 	if d:
+		set_collision_mask_value(1,false)
 		dashDir = Vector2( Input.get_axis("left", "right"), Input.get_axis("up","down"))
 		if dashDir == Vector2.ZERO:
 			dashDir = Vector2(animSprite.scale.x,0)

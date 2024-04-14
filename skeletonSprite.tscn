@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://dm1f8g08sushs"]
+
+[ext_resource type="Material" uid="uid://djcymbimdiwsg" path="res://pixel_perf_matetial.tres" id="1_1mg2r"]
+[ext_resource type="Texture2D" uid="uid://hvy222vfufv1" path="res://assets/skeleton_attack.png" id="2_w88q2"]
+[ext_resource type="Texture2D" uid="uid://bfdvd6wiivmlu" path="res://assets/skeleton_dash.png" id="3_ppbw7"]
+[ext_resource type="Texture2D" uid="uid://cqlvvgobggtc2" path="res://assets/skeleton_idle.png" id="4_js7wo"]
+[ext_resource type="Texture2D" uid="uid://cr7fa0njn83b6" path="res://assets/skeleton_walk.png" id="5_wwdp3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vukc3"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0m5y"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e76nw"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4ulm"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu1h5"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymrj1"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rui4f"]
+atlas = ExtResource("2_w88q2")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwh6x"]
+atlas = ExtResource("3_ppbw7")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av1km"]
+atlas = ExtResource("3_ppbw7")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo83m"]
+atlas = ExtResource("4_js7wo")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc7u3"]
+atlas = ExtResource("4_js7wo")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slfl0"]
+atlas = ExtResource("5_wwdp3")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4mqo"]
+atlas = ExtResource("5_wwdp3")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjssh"]
+atlas = ExtResource("5_wwdp3")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d55y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vukc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0m5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e76nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4ulm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu1h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymrj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rui4f")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwh6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av1km")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo83m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc7u3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slfl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4mqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjssh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aaw13"]
+radius = 21.0238
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+material = ExtResource("1_1mg2r")
+sprite_frames = SubResource("SpriteFrames_7d55y")
+animation = &"dash"
+frame = 1
+frame_progress = 0.966224
+
+[node name="swordArea" type="Area2D" parent="."]
+
+[node name="colider" type="CollisionShape2D" parent="swordArea"]
+position = Vector2(12, 0)
+shape = SubResource("CircleShape2D_aaw13")
+debug_color = Color(0.980392, 0.101961, 0.25098, 0.419608)
