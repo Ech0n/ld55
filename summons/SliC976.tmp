@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://is1q5c8t0k4s"]
+[gd_scene load_steps=14 format=3 uid="uid://is1q5c8t0k4s"]
 
 [ext_resource type="Script" path="res://summons/Slime.gd" id="1_6e024"]
 [ext_resource type="Texture2D" uid="uid://cp0byka50w8x1" path="res://assets/aseprite/sprite_sheets/big_slime_attack-Sheet.png" id="1_ql2i2"]
@@ -66,11 +66,7 @@ radius = 109.005
 size = Vector2(13, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukp5g"]
-radius = 11.0
 height = 32.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjci5"]
-radius = 6.0
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_6e024")
@@ -82,8 +78,6 @@ animation = &"walk"
 frame_progress = 0.304994
 
 [node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 5
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_r6atl")
@@ -93,23 +87,16 @@ position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_cfxq6")
 
 [node name="AttackDetectionArea" type="Area2D" parent="."]
-collision_layer = 5
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectionArea"]
-light_mask = 4
-visibility_layer = 4
+light_mask = 2
+visibility_layer = 2
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_ukp5g")
 
 [node name="InfoLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="TouchingArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingArea"]
-shape = SubResource("CapsuleShape2D_fjci5")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chqcyrctmuchq"]
+[gd_scene load_steps=17 format=3 uid="uid://bf1dpmvemdb7r"]
 
 [ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="1_0ree3"]
 [ext_resource type="Texture2D" uid="uid://c05tl6g58x1kl" path="res://assets/aseprite/blocks/brick3.png" id="2_0nj5x"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bdlnwfd3fgygt" path="res://assets/aseprite/blocks/grass2.png" id="5_1gueh"]
 [ext_resource type="Texture2D" uid="uid://q5ls2a888s3y" path="res://assets/aseprite/blocks/grass3.png" id="6_gtnar"]
 [ext_resource type="Texture2D" uid="uid://bs8u1rtvegbyv" path="res://assets/aseprite/blocks/grass.png" id="7_oqlrd"]
-[ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="8_yucu8"]
+[ext_resource type="PackedScene" path="res://chest.tscn" id="8_yucu8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dha3"]
 texture = ExtResource("2_bfhn6")

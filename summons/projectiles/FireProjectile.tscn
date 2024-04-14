@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl414vqhvkixb"]
+
+[ext_resource type="Script" path="res://summons/projectiles/FireProjectile.gd" id="1_psser"]
+[ext_resource type="Texture2D" uid="uid://cipcjn4pvmnjv" path="res://assets/aseprite/projectiles/fire_projectile.png" id="2_vtcpc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq518"]
+
+[node name="FireProjectile" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_psser")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tq518")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vtcpc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

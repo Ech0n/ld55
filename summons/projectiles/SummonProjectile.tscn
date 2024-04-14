@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsire7cgplmo7"]
 
-[ext_resource type="Script" path="res://summon/projectile.gd" id="1_4e45p"]
-[ext_resource type="Texture2D" uid="uid://cos5ydnig4m3l" path="res://assets/aseprite/projectiles/fire_projectile2.png" id="1_8s0ww"]
+[ext_resource type="Script" path="res://summons/projectiles/SummonProjecitle.gd" id="1_4e45p"]
+[ext_resource type="Texture2D" uid="uid://bs5hmvww10wv0" path="res://assets/aseprite/projectiles/fire_projectile2.png" id="1_8s0ww"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjcol"]
 
