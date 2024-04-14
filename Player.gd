@@ -22,6 +22,8 @@ var attack_cooldown = 30
 var max_health = 100.0
 var curr_health = 100.0
 var curr_attack_cooldown = 0
+@export_range(1,200,1)
+var sword_damge = 35.0
 
 func _ready():
 	animSprite.play("idle")
@@ -56,7 +58,7 @@ func _physics_process(_delta):
 		var bodies = swordArea.get_overlapping_bodies()
 		for b in bodies:
 			if b.is_in_group("enemy"):
-				b.take_damage(25)
+				b.take_damage(sword_damge)
 		curr_attack_cooldown = attack_cooldown
 	
 	if curr_attack_cooldown > 0:

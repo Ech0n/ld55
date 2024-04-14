@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bau5s8urkw213"]
 
-[ext_resource type="Script" path="res://EnemySpawner.gd" id="1_eof2s"]
-[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/Slime.tscn" id="2_46k1c"]
+[ext_resource type="Script" path="res://workspace/EnemySpawner.gd" id="1_eof2s"]
+[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/slime.tscn" id="2_s0oav"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_eof2s")
-slajm = ExtResource("2_46k1c")
+slajm = ExtResource("2_s0oav")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

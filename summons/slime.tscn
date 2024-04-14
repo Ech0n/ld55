@@ -1,32 +1,32 @@
 [gd_scene load_steps=18 format=3 uid="uid://is1q5c8t0k4s"]
 
-[ext_resource type="Script" path="res://summons/Slime.gd" id="1_6e024"]
-[ext_resource type="Texture2D" uid="uid://cp0byka50w8x1" path="res://assets/aseprite/sprite_sheets/big_slime_attack-Sheet.png" id="1_ql2i2"]
-[ext_resource type="Material" uid="uid://djcymbimdiwsg" path="res://pixel_perf_matetial.tres" id="2_kswhe"]
-[ext_resource type="Texture2D" uid="uid://b0f25b2l31ihm" path="res://assets/aseprite/sprite_sheets/big_slime-Sheet.png" id="3_fimwp"]
+[ext_resource type="Script" path="res://summons/Slime.gd" id="1_4vmn6"]
+[ext_resource type="Material" uid="uid://djcymbimdiwsg" path="res://pixel_perf_matetial.tres" id="2_2fy0r"]
+[ext_resource type="Texture2D" uid="uid://cp0byka50w8x1" path="res://assets/aseprite/sprite_sheets/big_slime_attack-Sheet.png" id="3_tsmdx"]
+[ext_resource type="Texture2D" uid="uid://b0f25b2l31ihm" path="res://assets/aseprite/sprite_sheets/big_slime-Sheet.png" id="4_qlex2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k5msx"]
-atlas = ExtResource("1_ql2i2")
+atlas = ExtResource("3_tsmdx")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_et8hm"]
-atlas = ExtResource("1_ql2i2")
+atlas = ExtResource("3_tsmdx")
 region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xebjr"]
-atlas = ExtResource("1_ql2i2")
+atlas = ExtResource("3_tsmdx")
 region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3d1x7"]
-atlas = ExtResource("3_fimwp")
+atlas = ExtResource("4_qlex2")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cig6b"]
-atlas = ExtResource("3_fimwp")
+atlas = ExtResource("4_qlex2")
 region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlts4"]
-atlas = ExtResource("3_fimwp")
+atlas = ExtResource("4_qlex2")
 region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3cgiv"]
@@ -82,11 +82,11 @@ _data = [Vector2(0, 0.472528), 0.0, 0.0, 0, 0, Vector2(1, -0.384615), 0.0, 0.0, 
 point_count = 2
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
-script = ExtResource("1_6e024")
+script = ExtResource("1_4vmn6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-material = ExtResource("2_kswhe")
+material = ExtResource("2_2fy0r")
 sprite_frames = SubResource("SpriteFrames_3cgiv")
 animation = &"walk"
 frame_progress = 0.304994
@@ -117,7 +117,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="TouchingArea" type="Area2D" parent="."]
-material = ExtResource("2_kswhe")
+material = ExtResource("2_2fy0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingArea"]
 shape = SubResource("CapsuleShape2D_fjci5")
