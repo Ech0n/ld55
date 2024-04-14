@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ddnt5es45fwtv"]
+[gd_scene load_steps=29 format=3 uid="uid://ddnt5es45fwtv"]
 
 [ext_resource type="Texture2D" uid="uid://hvy222vfufv1" path="res://assets/skeleton_attack.png" id="1_1ilq7"]
 [ext_resource type="Script" path="res://Player.gd" id="1_8ufmy"]
@@ -34,10 +34,6 @@ region = Rect2(320, 0, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rui4f"]
 atlas = ExtResource("1_1ilq7")
 region = Rect2(384, 0, 64, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5jbh"]
-atlas = ExtResource("4_nmbxs")
-region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwh6x"]
 atlas = ExtResource("4_nmbxs")
@@ -96,9 +92,6 @@ animations = [{
 "speed": 24.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x5jbh")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qwh6x")
 }, {
@@ -175,7 +168,7 @@ texture_filter = 1
 material = ExtResource("2_ispuv")
 sprite_frames = SubResource("SpriteFrames_7d55y")
 animation = &"dash"
-frame = 2
+frame = 1
 frame_progress = 0.966224
 
 [node name="swordArea" type="Area2D" parent="AnimatedSprite2D"]

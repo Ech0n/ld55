@@ -90,13 +90,15 @@ func _physics_process(delta):
 			attackTimer = 0
 	if(state == "dash"):
 		velocity = dashDir.normalized() * SPEED * dashSpeed
+		animSprite.play("dash")
 		lastDashPos = position
+		playerColider.disabled = true
 		if position.distance_to(dashStartPos) > dash_distance:
 			dashTimer = 0
 			state = 'idle'
 			animSprite.play("idle")
 			velocity = Vector2.ZERO
-	
+			playerColider.disabled = false
 	
 	print(t,state)
 	#if attack and curr_attack_cooldown == 0:
@@ -152,12 +154,16 @@ func _on_pickup_area_body_exited(body):
 		isInLava = false
 	
 var lavaTimer = 0.0
+var nextLavaDmg = 5.0
 func _process(delta):
 	if(isInLava):
 		lavaTimer += delta
 		if lavaTimer > 0.5:
 			lavaTimer = 0
-			take_damage(16)
+			take_damage(nextLavaDmg)
+			nextLavaDmg = nextLavaDmg**1.03
+	else:
+		nextLavaDmg = 10.0
 		
 		
 		
