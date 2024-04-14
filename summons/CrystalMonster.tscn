@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c0ow70l6h6l67" path="res://assets/aseprite/sprite_sheets/golem_attack-Sheet.png" id="1_gm2q1"]
 [ext_resource type="Script" path="res://summons/CrystalMonster.gd" id="1_sfrs6"]
-[ext_resource type="PackedScene" uid="uid://diob3t7sjb0h6" path="res://summons/projectiles/HomingProjectile.tscn" id="2_u5xj4"]
+[ext_resource type="PackedScene" uid="uid://6voxwetp1ulp" path="res://summons/projectiles/HomingProjectile.tscn" id="2_u5xj4"]
 [ext_resource type="Texture2D" uid="uid://cm3d3ha01hsd8" path="res://assets/aseprite/sprite_sheets/golem-Sheet.png" id="3_pyggl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8lqv"]

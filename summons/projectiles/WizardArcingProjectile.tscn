@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ijvpla22gswy" path="res://assets/aseprite/projectiles/magic_projectile2.png" id="2_0imxw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq518"]
-radius = 3.0
+radius = 2.0
 
 [node name="ArcingProjectile" type="Area2D"]
 texture_filter = 1

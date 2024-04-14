@@ -13,6 +13,8 @@ var touching_player : bool = false
 var is_ranged : bool = false
 var thorns_damage : float = 0
 var touching_monster : bool = false
+var random_direction : Vector2 = Vector2.ZERO
+var touching_mobs = []
 
 @onready
 var animSprite = $AnimatedSprite2D
@@ -45,7 +47,7 @@ func attack_player(): # This has to be overriden in order to work for ranged ene
 
 
 func _physics_process(delta):
-	infoLabel.text = "Health: %d" % (1 if touching_player else 0)
+	infoLabel.text = "Touching uwu: %d" % (1 if touching_monster else 0)
 	infoLabel.position = Vector2(-50, -50)
 	
 	if player:
@@ -55,7 +57,9 @@ func _physics_process(delta):
 		else:
 			update_sprite_animation()
 		
-		if not touching_player and not (is_ranged and in_attack_range) and not touching_monster:
+		if not touching_player and not (is_ranged and in_attack_range):
+			if touching_monster:
+				position += random_direction * 1.5
 			position = position.lerp(player.position, delta * speed)
 	
 	if touching_player:
@@ -85,14 +89,19 @@ func _on_attack_detection_area_body_exited(body):
 func _on_touching_area_body_entered(body):
 	if body.is_in_group("player"):
 		touching_player = true
-	elif body.is_in_group("enemy") and body.global_position.x < global_position.x:
+	elif body.is_in_group("enemy") and body.global_position.x > global_position.x:
+		random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 		touching_monster = true
+		touching_mobs.append(body)
 
 func _on_touching_area_body_exited(body):
 	if body.is_in_group("player"):
 		touching_player = false
 	elif body.is_in_group("enemy"):
-		touching_monster = false
+		if body in touching_mobs:
+			touching_mobs.erase(body)
+			touching_monster = false
+		
 
 
 func take_damage(damage : float):
@@ -100,4 +109,8 @@ func take_damage(damage : float):
 	particleManager.restart()
 	if curr_health <= 0:
 		queue_free()
+
+
+func sleep(seconds):
+	await get_tree().create_timer(seconds).timeout 
 

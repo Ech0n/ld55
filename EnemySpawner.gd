@@ -11,8 +11,7 @@ var player = get_tree().get_nodes_in_group("player")[0]
 
 #import enemies
 @export_category("enemies")
-@export
-var enemies: Array[PackedScene]
+@export var enemies: Array[PackedScene]
 
 
 var screenRadius = 300

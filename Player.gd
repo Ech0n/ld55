@@ -22,14 +22,12 @@ var attack_cooldown = 0.4
 var max_health = 100.0
 var curr_health = 100.0
 var curr_attack_cooldown = 0
-@export_range(1,200,1)
-var sword_damge = 35.0
+@export_range(1,200,1) var sword_damge = 35.0
 var dmg_reduction = 1
-@export
-var dash_distance = 100
-@export
-var dashSpeed = 3
+@export var dash_distance = 100
+@export var dashSpeed = 3
 var dash_cooldown = 0.2
+var curr_summons = []
 
 var state = "idle"
 
@@ -98,10 +96,6 @@ func _physics_process(delta):
 			velocity = Vector2.ZERO
 			set_collision_mask_value(1,true)		
 
-	#print(get_collision_layer_value(2))
-	print(state)
-	#if attack and curr_attack_cooldown == 0:
-		
 	
 	if attackTimer < attack_cooldown:
 		attackTimer +=delta
@@ -168,7 +162,14 @@ func _process(delta):
 		
 		
 func take_damage(damage):
-	curr_health -= damage
+	curr_health -= damage/dmg_reduction
 	if curr_health < 0:
 		pass # Death happens here
 
+func delete_summon(summon):
+	curr_summons.erase(summon)
+
+func add_summon(summon):
+	if len(curr_summons) == 3:
+		return
+	curr_summons.append(summon)
