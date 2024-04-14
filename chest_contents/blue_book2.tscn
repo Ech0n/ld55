@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://bisqp3gq588gd"]
+
+[ext_resource type="Script" path="res://chest_contents/blue_book2.gd" id="1_t3jqs"]
+[ext_resource type="Texture2D" uid="uid://qupq3owiqw8m" path="res://assets/aseprite/Items/blue_pot.png" id="1_xjutw"]
+[ext_resource type="Texture2D" uid="uid://c12n537r4h2s4" path="res://assets/aseprite/Items/book2.png" id="2_qgslb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t3jqs")
+
+[node name="ItemList" type="ItemList" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -117.0
+offset_top = -89.0
+offset_right = 120.0
+offset_bottom = 88.0
+item_count = 2
+max_columns = 2
+same_column_width = true
+fixed_column_width = 104
+icon_mode = 0
+item_0/text = "Blue Potion"
+item_0/icon = ExtResource("1_xjutw")
+item_1/text = "book2"
+item_1/icon = ExtResource("2_qgslb")
+
+[node name="TextEdit" type="TextEdit" parent="ItemList"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 65.0
+offset_right = 103.0
+offset_bottom = 170.0
+text = "More 
+defence"
+editable = false
+
+[node name="TextEdit2" type="TextEdit" parent="ItemList"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 64.0
+offset_right = 216.0
+offset_bottom = 169.0
+text = "Idk
+maybe 
+:\\"
+editable = false
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
