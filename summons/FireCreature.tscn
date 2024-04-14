@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://summons/FireCreature.gd" id="1_jg34u"]
 [ext_resource type="PackedScene" uid="uid://dl414vqhvkixb" path="res://summons/projectiles/FireProjectile.tscn" id="2_3uhfn"]
-[ext_resource type="Texture2D" uid="uid://vhpce2lut566" path="res://assets/aseprite/fire_elemental_attack-Sheet.png" id="2_38573"]
-[ext_resource type="Texture2D" uid="uid://box5btejd5lkf" path="res://assets/aseprite/fire_elemental-Sheet.png" id="2_utoot"]
+[ext_resource type="Texture2D" uid="uid://box5btejd5lkf" path="res://assets/aseprite/sprite_sheets/fire_elemental-Sheet.png" id="2_utoot"]
+[ext_resource type="Texture2D" uid="uid://vhpce2lut566" path="res://assets/aseprite/sprite_sheets/fire_elemental_attack-Sheet.png" id="3_1wos8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yb8j"]
-atlas = ExtResource("2_38573")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6xnu"]
+atlas = ExtResource("3_1wos8")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8y77s"]
-atlas = ExtResource("2_38573")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywvei"]
+atlas = ExtResource("3_1wos8")
 region = Rect2(16, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pf3fa"]
-atlas = ExtResource("2_38573")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad1eq"]
+atlas = ExtResource("3_1wos8")
 region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwt80"]
@@ -33,13 +33,13 @@ region = Rect2(32, 0, 16, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7yb8j")
+"texture": SubResource("AtlasTexture_b6xnu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8y77s")
+"texture": SubResource("AtlasTexture_ywvei")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pf3fa")
+"texture": SubResource("AtlasTexture_ad1eq")
 }],
 "loop": true,
 "name": &"attack",
@@ -81,7 +81,7 @@ Bullet = ExtResource("2_3uhfn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3cgiv")
-animation = &"attack"
+animation = &"walk"
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 5
