@@ -5,8 +5,7 @@ func _init():
 	speed = 120.0
 	time_to_live = 3.0
 	is_friendly = false
-
-@export var rotation_speed : float = 80.0
+	rotation_speed = 80.0
 
 func _physics_process(delta):
 	if target_dir != Vector2.ZERO:

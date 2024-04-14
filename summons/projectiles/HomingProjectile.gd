@@ -5,13 +5,12 @@ func _init():
 	speed = 150.0
 	time_to_live = 3.0
 	is_friendly = false
-
-@export var rotation_speed : float = 200.0
+	rotation_speed = 200.0
 
 var target_node : Node
 
 func _ready():
-	target_node = get_node("/root/world/Player")
+	target_node = get_node("/root/Game/Player") # This needs updating in new scenes
 
 func _physics_process(delta):
 	if target_node:

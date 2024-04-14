@@ -75,12 +75,31 @@ func update_health_label():
 func _on_animation_finished():
 	animSprite.play("idle")
 
+var isInLava = false
 
 func _on_pickup_area_body_entered(body):
 	if body.has_method("random_items"):
 		body.random_items()
+	if body.is_in_group("env"):
+		isInLava = true
+
+
+func _on_pickup_area_body_exited(body):
+	if body.is_in_group("env"):
+		isInLava = false
 	
+var lavaTimer = 0.0
+func _process(delta):
+	if(isInLava):
+		lavaTimer += delta
+		if lavaTimer > 0.5:
+			lavaTimer = 0
+			take_damage(16)
+		
+		
+		
 func take_damage(damage):
 	curr_health -= damage
 	if curr_health < 0:
 		pass # Death happens here
+
