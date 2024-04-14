@@ -1,9 +1,9 @@
-class_name HomingProjectile
+class_name WizardHomingProjectile
 extends "ProjectileInterface.gd"
 
 func _init():
-	speed = 150.0
-	time_to_live = 3.0
+	speed = 125.0
+	time_to_live = 4.0
 	is_friendly = false
 	rotation_speed = 200.0
 

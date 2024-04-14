@@ -1,11 +1,10 @@
-class_name ArcingProjectile
+class_name WizardArcingProjectile
 extends "ProjectileInterface.gd"
 
 func _init():
-	speed = 120.0
-	time_to_live = 3.0
+	speed = 160.0
+	time_to_live = 4.5
 	is_friendly = false
-	rotation_speed = 80.0
 
 func _physics_process(delta):
 	if target_dir != Vector2.ZERO:

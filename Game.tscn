@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wbm1cfcspuc"]
+[gd_scene load_steps=12 format=3 uid="uid://wbm1cfcspuc"]
 
 [ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="1_v4cki"]
 [ext_resource type="PackedScene" uid="uid://bau5s8urkw213" path="res://enemy_spawner.tscn" id="2_maod0"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://path.gd" id="4_lqsfp"]
 [ext_resource type="PackedScene" uid="uid://slm3jyju32tp" path="res://torch.tscn" id="5_q6bx2"]
 [ext_resource type="PackedScene" uid="uid://dr7llyqut1o80" path="res://gps_arrow.tscn" id="6_vvgjq"]
+[ext_resource type="PackedScene" uid="uid://sbx1fmmbn57t" path="res://summons/Wizard.tscn" id="7_njgk6"]
+[ext_resource type="PackedScene" uid="uid://cl8lvahycqkp2" path="res://summons/AngelSummon.tscn" id="8_hkhgb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_818bd"]
 texture = ExtResource("3_apdm2")
@@ -46,6 +48,7 @@ point_count = 5
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
@@ -68,3 +71,10 @@ curve = SubResource("Curve2D_un1cx")
 script = ExtResource("4_lqsfp")
 torch = ExtResource("5_q6bx2")
 gpsArrow = ExtResource("6_vvgjq")
+
+[node name="Wizard" parent="." instance=ExtResource("7_njgk6")]
+position = Vector2(877, 206)
+
+[node name="AngelSummon" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_hkhgb")]
+position = Vector2(-1016.01, -274.787)
+player = NodePath("../Player")

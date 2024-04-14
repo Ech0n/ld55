@@ -1,0 +1,163 @@
+[gd_scene load_steps=20 format=3 uid="uid://sbx1fmmbn57t"]
+
+[ext_resource type="Script" path="res://summons/Wizard.gd" id="1_4b2vk"]
+[ext_resource type="PackedScene" uid="uid://6khry863j58v" path="res://summons/projectiles/WizardHomingProjectile.tscn" id="2_4lcjy"]
+[ext_resource type="Texture2D" uid="uid://cc0rhdu8ywqr6" path="res://assets/aseprite/wizard1-Sheet.png" id="2_njstd"]
+[ext_resource type="Texture2D" uid="uid://c132q65etnymo" path="res://assets/aseprite/wizard1_attack-Sheet.png" id="3_em0vy"]
+[ext_resource type="PackedScene" uid="uid://bd2edkxyq63xg" path="res://summons/projectiles/WizardArcingProjectile.tscn" id="3_yuu6w"]
+[ext_resource type="PackedScene" uid="uid://cx8o44xlqpyjg" path="res://summons/projectiles/WizardProjectile.tscn" id="4_nou8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qg6y"]
+atlas = ExtResource("3_em0vy")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t515"]
+atlas = ExtResource("3_em0vy")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptnds"]
+atlas = ExtResource("3_em0vy")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgvo4"]
+atlas = ExtResource("2_njstd")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udrgp"]
+atlas = ExtResource("2_njstd")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icyu6"]
+atlas = ExtResource("2_njstd")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cgiv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qg6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t515")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptnds")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgvo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udrgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icyu6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6atl"]
+radius = 888.767
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfxq6"]
+size = Vector2(8, 20.6667)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukp5g"]
+radius = 524.0
+height = 1048.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qywha"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xntoe"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_nhf4k"]
+min_value = -1.0
+_data = [Vector2(0, 0.472528), 0.0, 0.0, 0, 0, Vector2(1, -0.384615), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Wizard" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_4b2vk")
+HomingBullet = ExtResource("2_4lcjy")
+ArcingBullet = ExtResource("3_yuu6w")
+NormalBullet = ExtResource("4_nou8v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3cgiv")
+animation = &"attack"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+z_index = 3
+texture_filter = 1
+position = Vector2(0.666667, 0)
+shape = SubResource("CircleShape2D_r6atl")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(-1.33333, -0.333334)
+shape = SubResource("RectangleShape2D_cfxq6")
+
+[node name="AttackDetectionArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectionArea"]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("CapsuleShape2D_ukp5g")
+
+[node name="InfoLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -7.0
+
+[node name="TouchingArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingArea"]
+shape = SubResource("CapsuleShape2D_qywha")
+
+[node name="particler" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_xntoe")
+emitting = false
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.7
+explosiveness = 0.76
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 4.18
+direction = Vector2(1, 2)
+spread = 180.0
+gravity = Vector2(0, 900)
+initial_velocity_min = 130.43
+initial_velocity_max = 141.3
+scale_amount_max = 1.5
+color = Color(0, 1, 0, 1)
+hue_variation_min = -0.37
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_nhf4k")
+anim_speed_min = 23.66
+anim_speed_max = 26.44
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_entered"]
+[connection signal="body_exited" from="AttackDetectionArea" to="." method="_on_attack_detection_area_body_exited"]
+[connection signal="body_entered" from="TouchingArea" to="." method="_on_touching_area_body_entered"]
+[connection signal="body_exited" from="TouchingArea" to="." method="_on_touching_area_body_exited"]
