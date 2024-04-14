@@ -91,7 +91,11 @@ func _ready():
 
 func random_items():
 	print("\nChest detected")
-	#get random items different from each
+	
+	# This is how you create and add summons
+	var eye_summon := EyeSummon.new_summon(1) # 1 is index, there will be only 3 slots for summons
+	get_tree().get_root().add_child(eye_summon)
+	
 	var item1 = allItems.pick_random()
 	var item2 = allItems.pick_random()
 	while item1 == item2:

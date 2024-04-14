@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@onready
-var player = get_tree().get_nodes_in_group("player")[0]
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 @export var Bullet : PackedScene
 
 var speed : float = 0.0
@@ -12,17 +11,18 @@ var blocks_enemy_projectiles : bool = false
 var looseness : float = 1.0
 var projectile_amount : int = 1
 var spread_angle : float = 0.0
+var summon_slot : int  # DONT TOUCH
 
 var dir : int = 1
 
-@onready
-var animSprite = $AnimatedSprite2D
+@onready var animSprite = $AnimatedSprite2D
+
 
 func _ready():
+	player.add_summon(self)
 	animSprite.play("idle")
 	if blocks_enemy_projectiles:
 		add_to_group("blocker")
-
 
 func shoot():
 	for i in range(projectile_amount):
@@ -38,8 +38,8 @@ func _physics_process(delta):
 	
 	if player:
 		dir = sign(player.velocity.x) if player.velocity.x != 0 else dir
-		var offset_x = Vector2.LEFT * looseness * (dir * 15)
-		var offset_y = Vector2.UP * looseness * 8
+		var offset_x = Vector2.LEFT * (dir * 15)
+		var offset_y = Vector2.UP * 8
 		var pos = player.position + offset_x + offset_y
 		position = lerp(position, pos, delta * speed)
 	

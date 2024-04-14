@@ -9,3 +9,9 @@ func _init():
 	looseness = 1.5
 	spread_angle = 3.0
 	blocks_enemy_projectiles = true
+
+static func new_summon(num) -> AngelSummon:
+	var angel_scene: PackedScene = load("res://summons/AngelSummon.tscn")
+	var new_angel: AngelSummon = angel_scene.instantiate()
+	new_angel.summon_slot = num
+	return new_angel
