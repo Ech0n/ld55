@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://baktf4dti3owm" path="res://assets/arrow.png" id="1_jrxx6"]
 
 [node name="gpsArrow" type="Sprite2D"]
+texture_filter = 1
 texture = ExtResource("1_jrxx6")

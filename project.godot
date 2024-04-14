@@ -14,10 +14,7 @@ config/name="Ld 55"
 run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+<<<<<<<HEADrun/main_scene="res://world.tscn"
 
 [display]
 
