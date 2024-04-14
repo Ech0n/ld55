@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl8lvahycqkp2"]
+[gd_scene load_steps=10 format=3 uid="uid://rbgh3ffxj22p"]
 
 [ext_resource type="Script" path="res://summons/AngelSummon.gd" id="1_qnurc"]
 [ext_resource type="Texture2D" uid="uid://du4kr3mmv828" path="res://assets/aseprite/sprite_sheets/godhead-Sheet.png" id="2_byuib"]

@@ -8,10 +8,13 @@ func _init():
 
 @export var rotation_speed : float = 200.0
 
-var target_node : Node
+var target_node : Node 
+
+@onready
+var player = get_tree().get_nodes_in_group("player")[0]
 
 func _ready():
-	target_node = get_node("/root/world/Player")
+	target_node = player
 
 func _physics_process(delta):
 	if target_node:

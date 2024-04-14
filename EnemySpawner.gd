@@ -9,7 +9,25 @@ var player = get_tree().get_nodes_in_group("player")[0]
 #import enemies
 @export_category("enemies")
 @export
+var enemies: Array[PackedScene]
+@export
 var slajm : PackedScene
+@export
+var golem : PackedScene
+@export
+var klops : PackedScene
+@export
+var tree : PackedScene
+@export
+var fireAspekt : PackedScene
+@export
+var Krysztal : PackedScene
+@export
+var anjel : PackedScene
+@export
+var oko : PackedScene
+@export
+var apiBiru : PackedScene
 
 var screenRadius = 300
 
@@ -22,8 +40,9 @@ func _ready():
 
 var i = 0
 func _on_timer_timeout():
+	var pickEnemy = enemies[randi() % enemies.size()]
 	var p = rand_circle(screenRadius)
-	var inst = slajm.instantiate()
+	var inst = pickEnemy.instantiate()
 	inst.position = player.position + p
 	add_child(inst)
 	
