@@ -12,6 +12,7 @@ var damage : float = 0
 var touching_player : bool = false
 var is_ranged : bool = false
 var thorns_damage : float = 0
+var touching_monster : bool = false
 
 @onready
 var animSprite = $AnimatedSprite2D
@@ -54,7 +55,7 @@ func _physics_process(delta):
 		else:
 			update_sprite_animation()
 		
-		if not touching_player and not (is_ranged and in_attack_range):
+		if not touching_player and not (is_ranged and in_attack_range) and not touching_monster:
 			position = position.lerp(player.position, delta * speed)
 	
 	if touching_player:
@@ -84,11 +85,14 @@ func _on_attack_detection_area_body_exited(body):
 func _on_touching_area_body_entered(body):
 	if body.is_in_group("player"):
 		touching_player = true
-
+	elif body.is_in_group("enemy") and body.global_position.x < global_position.x:
+		touching_monster = true
 
 func _on_touching_area_body_exited(body):
 	if body.is_in_group("player"):
 		touching_player = false
+	elif body.is_in_group("enemy"):
+		touching_monster = false
 
 
 func take_damage(damage : float):

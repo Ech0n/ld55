@@ -5,8 +5,7 @@ func _init():
 	speed = 150.0
 	time_to_live = 3.0
 	is_friendly = false
-
-@export var rotation_speed : float = 200.0
+	rotation_speed = 200.0
 
 var target_node : Node 
 

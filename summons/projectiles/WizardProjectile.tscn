@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx8o44xlqpyjg"]
+
+[ext_resource type="Script" path="res://summons/projectiles/WizardProjectile.gd" id="1_mlvv3"]
+[ext_resource type="Texture2D" uid="uid://cipcjn4pvmnjv" path="res://assets/aseprite/projectiles/fire_projectile.png" id="2_1op0w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq518"]
+radius = 3.0
+
+[node name="WizardProjectile" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_mlvv3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tq518")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1op0w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

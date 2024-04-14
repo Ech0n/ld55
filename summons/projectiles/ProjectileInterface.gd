@@ -6,6 +6,8 @@ var time_to_live : float = 0
 var damage : float = 0
 var is_friendly : bool = false
 
+var rotation_speed : float = 0.0 # Used for arcing projectiles
+
 @onready var time_since_start = 0
 
 func _physics_process(delta):
