@@ -2,8 +2,8 @@ extends StaticBody2D
 
 var isPaused = false
 var allItems = ["armor", "book1", "book2", "book3", "dumbell", "milk", "speed", "blue_pot", "red_pot"]
-var itemPopups = {}
 
+#Combinations of all items
 var itemControlMap = {
 	"armor,blue_pot": "Control",
 	"blue_pot,armor": "Control",
@@ -86,34 +86,31 @@ var itemControlMap = {
 	"red_pot,speed": "Control36"
 }
 
-
-# Variables to store the names of item1 and item2
-var chosenItem1 = ""
-var chosenItem2 = ""
-
 func _ready():
 	pass
 
 func random_items():
 	print("\nChest detected")
-	var item1 = "milk"
-	var item2 = "speed"
-	#var item1 = allItems.pick_random()
-	#var item2 = allItems.pick_random()
-	#while item1 == item2:
-		#item2 = allItems.pick_random()
-
-	# Store the names of item1 and item2
-	chosenItem1 = item1
-	chosenItem2 = item2
+	#get random items different from each
+	var item1 = allItems.pick_random()
+	var item2 = allItems.pick_random()
+	while item1 == item2:
+		item2 = allItems.pick_random()
 
 	var combinedItems = item1 + "," + item2
 	var controlToShow = itemControlMap.get(combinedItems, "DefaultControl")
 
 	display_control(controlToShow)
+	
+	# Remove the chest
+	var chest = get_node("Chest")
+	var hitbox = get_node("CollisionShape2D")
+	if chest and hitbox:
+		chest.queue_free()
+		hitbox.queue_free()
 
-	# Pause the game
 	# pause_game()
+
 
 func pause_game():
 	isPaused = true

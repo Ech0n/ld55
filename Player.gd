@@ -16,7 +16,7 @@ var healthLabel = $HealthLabel
 var footstepsPartivcler = $footstepsParticles
 
 
-const SPEED = 180.0
+var SPEED = 150.0
 
 var attack_cooldown = 30
 var max_health = 100.0
@@ -24,6 +24,7 @@ var curr_health = 100.0
 var curr_attack_cooldown = 0
 @export_range(1,200,1)
 var sword_damge = 35.0
+var dmg_reduction = 1
 
 func _ready():
 	animSprite.play("idle")
