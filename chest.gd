@@ -96,12 +96,12 @@ func _ready():
 
 func random_items():
 	print("\nChest detected")
-	#var item1 = "armor"
-	#var item2 = "blue_pot"
-	var item1 = allItems.pick_random()
-	var item2 = allItems.pick_random()
-	while item1 == item2:
-		item2 = allItems.pick_random()
+	var item1 = "milk"
+	var item2 = "speed"
+	#var item1 = allItems.pick_random()
+	#var item2 = allItems.pick_random()
+	#while item1 == item2:
+		#item2 = allItems.pick_random()
 
 	# Store the names of item1 and item2
 	chosenItem1 = item1
