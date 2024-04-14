@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://slm3jyju32tp"]
+
+[ext_resource type="Texture2D" uid="uid://dn81tr1ovu4ep" path="res://assets/torch.png" id="1_4ght0"]
+
+[node name="torch" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_4ght0")

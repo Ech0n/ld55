@@ -12,6 +12,8 @@ var playerColider = $colider
 @onready
 var healthLabel = $HealthLabel
 
+
+
 const SPEED = 300.0
 
 var max_health = 100.0
@@ -30,7 +32,7 @@ func update_sprite_animation(xVelocity):
 	if xVelocity >0:
 		animSprite.scale.x = 1
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
