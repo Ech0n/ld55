@@ -25,11 +25,13 @@ var curr_attack_cooldown = 0
 @export_range(1,200,1)
 var sword_damge = 35.0
 
+var state = "idle"
+
 func _ready():
 	animSprite.play("idle")
 
 func update_sprite_animation(xVelocity):
-	if animSprite.animation == "attack":
+	if animSprite.animation == "attack" or animSprite.animation == "dash":
 		return
 		
 	animSprite.play("walk")
@@ -40,7 +42,12 @@ func update_sprite_animation(xVelocity):
 		animSprite.scale.x = 1
 
 func _physics_process(_delta):
-
+	
+	if(state=="idle"):
+		pass
+	if(state == "walk"):
+		pass
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Vector2( Input.get_axis("left", "right"), Input.get_axis("up","down"))
@@ -59,6 +66,8 @@ func _physics_process(_delta):
 		for b in bodies:
 			if b.is_in_group("enemy"):
 				b.take_damage(sword_damge)
+			if b.is_in_group("enemyProjectile"):
+				b.queue_free()
 		curr_attack_cooldown = attack_cooldown
 	
 	if curr_attack_cooldown > 0:

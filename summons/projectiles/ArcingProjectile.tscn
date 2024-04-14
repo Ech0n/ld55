@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://w4ojn3p1iduj"]
+[gd_scene load_steps=4 format=3 uid="uid://slwdlffmyotb"]
 
 [ext_resource type="Script" path="res://summons/projectiles/ArcingProjectile.gd" id="1_da4rb"]
-[ext_resource type="Texture2D" uid="uid://ijvpla22gswy" path="res://assets/aseprite/projectiles/magic_projectile2.png" id="2_w3uuq"]
+[ext_resource type="Texture2D" uid="uid://pt88q56yiuyw" path="res://assets/blue_projectile.png" id="2_0w3hq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq518"]
 radius = 3.0
 
-[node name="ArcingProjectile" type="Area2D"]
+[node name="ArcingProjectile" type="Area2D" groups=["enemyProjectile"]]
 texture_filter = 1
 collision_layer = 2
 collision_mask = 2
@@ -17,7 +17,7 @@ light_mask = 2
 visibility_layer = 2
 shape = SubResource("CircleShape2D_tq518")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_w3uuq")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0w3hq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

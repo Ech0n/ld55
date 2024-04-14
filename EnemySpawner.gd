@@ -1,5 +1,8 @@
 extends Node2D
 
+@export 
+var max_enemies = 20
+
 @onready
 var timer = $Timer
 
@@ -10,24 +13,7 @@ var player = get_tree().get_nodes_in_group("player")[0]
 @export_category("enemies")
 @export
 var enemies: Array[PackedScene]
-@export
-var slajm : PackedScene
-@export
-var golem : PackedScene
-@export
-var klops : PackedScene
-@export
-var tree : PackedScene
-@export
-var fireAspekt : PackedScene
-@export
-var Krysztal : PackedScene
-@export
-var anjel : PackedScene
-@export
-var oko : PackedScene
-@export
-var apiBiru : PackedScene
+
 
 var screenRadius = 300
 
@@ -38,9 +24,16 @@ func _ready():
 	screenRadius = sqrt( (get_viewport().size.x **2) + (get_viewport().size.y **2) )/2
 	 
 
+
 var i = 0
 func _on_timer_timeout():
-	var pickEnemy = enemies[randi() % enemies.size()]
+	if get_child_count() > max_enemies:
+		print("not spawning more", get_child_count())
+		return
+	print("spawning more", get_child_count())
+	
+	#var pickEnemy = enemies[randi() % enemies.size()]
+	var pickEnemy = enemies[0]
 	var p = rand_circle(screenRadius)
 	var inst = pickEnemy.instantiate()
 	inst.position = player.position + p

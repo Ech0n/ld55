@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready
-var player = get_tree().get_nodes_in_group("player")[0]
+var player = get_tree().get_nodes_in_group("player")[0] 
 
 var speed : float = 0.0
 
