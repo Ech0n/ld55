@@ -163,6 +163,7 @@ position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_ho80f")
 
 [node name="pickupArea" type="Area2D" parent="."]
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickupArea"]
 position = Vector2(0, 3)
@@ -183,3 +184,4 @@ texture = SubResource("GradientTexture1D_43der")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="body_entered" from="pickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="body_exited" from="pickupArea" to="." method="_on_pickup_area_body_exited"]
