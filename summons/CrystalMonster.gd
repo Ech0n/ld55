@@ -1,4 +1,4 @@
-class_name TreeMonster
+class_name CrystalMonster
 extends "EnemyInterface.gd"
 
 @export var Bullet : PackedScene
@@ -7,15 +7,15 @@ extends "EnemyInterface.gd"
 func _init():
 	speed = 0.5
 	curr_health = 300
-	attack_cooldown = 100
+	attack_cooldown = 150
 	damage = 30
 	is_ranged = true
 
 
 func attack_player():
 	if curr_attack_cooldown == 0:
-		var num_projectiles = 12
-		var spread_angle = 360 / num_projectiles
+		var num_projectiles = 2
+		var spread_angle = 90 / num_projectiles
 		
 		for i in range(num_projectiles):
 			var bullet = Bullet.instantiate() 
