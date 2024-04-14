@@ -9,8 +9,8 @@ func _ready():
 func _on_item_list_item_selected(index):
 	if index == 0:
 		player.max_health += 10
-		player.current_health += 10
-		print(player.max_health + " " + player.current_health)
+		player.curr_health += 10
+		print(player.max_health + " " + player.curr_health)
 	else:
 		player.SPEED += 30
 		print(player.SPEED)

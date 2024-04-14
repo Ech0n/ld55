@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bulgthhbplfq3"]
+[gd_scene load_steps=8 format=3 uid="uid://bywlb21m671pk"]
 
 [ext_resource type="Script" path="res://summons/GolemSummon.gd" id="1_xjyo8"]
 [ext_resource type="Texture2D" uid="uid://cey7ci4r160gd" path="res://assets/aseprite/sprite_sheets/golem_core-Sheet.png" id="2_owoua"]

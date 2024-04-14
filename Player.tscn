@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddnt5es45fwtv"]
+[gd_scene load_steps=30 format=3 uid="uid://ddnt5es45fwtv"]
 
 [ext_resource type="Texture2D" uid="uid://hvy222vfufv1" path="res://assets/skeleton_attack.png" id="1_1ilq7"]
 [ext_resource type="Script" path="res://Player.gd" id="1_8ufmy"]
 [ext_resource type="Texture2D" uid="uid://cqlvvgobggtc2" path="res://assets/skeleton_idle.png" id="2_8ucbl"]
 [ext_resource type="Material" uid="uid://djcymbimdiwsg" path="res://pixel_perf_matetial.tres" id="2_ispuv"]
 [ext_resource type="Texture2D" uid="uid://cr7fa0njn83b6" path="res://assets/skeleton_walk.png" id="3_rk4i8"]
+[ext_resource type="Texture2D" uid="uid://bfdvd6wiivmlu" path="res://assets/skeleton_dash.png" id="4_nmbxs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vukc3"]
 atlas = ExtResource("1_1ilq7")
@@ -33,6 +34,18 @@ region = Rect2(320, 0, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rui4f"]
 atlas = ExtResource("1_1ilq7")
 region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5jbh"]
+atlas = ExtResource("4_nmbxs")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwh6x"]
+atlas = ExtResource("4_nmbxs")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av1km"]
+atlas = ExtResource("4_nmbxs")
+region = Rect2(128, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo83m"]
 atlas = ExtResource("2_8ucbl")
@@ -81,6 +94,20 @@ animations = [{
 "loop": false,
 "name": &"attack",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5jbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwh6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av1km")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -139,7 +166,6 @@ gradient = SubResource("Gradient_xe71b")
 width = 3
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-z_index = 10
 collision_layer = 6
 collision_mask = 5
 script = ExtResource("1_8ufmy")
@@ -148,9 +174,9 @@ script = ExtResource("1_8ufmy")
 texture_filter = 1
 material = ExtResource("2_ispuv")
 sprite_frames = SubResource("SpriteFrames_7d55y")
-animation = &"attack"
-frame = 6
-frame_progress = 1.0
+animation = &"dash"
+frame = 2
+frame_progress = 0.966224
 
 [node name="swordArea" type="Area2D" parent="AnimatedSprite2D"]
 

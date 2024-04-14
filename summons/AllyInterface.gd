@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var player : CharacterBody2D
+@onready
+var player = get_tree().get_nodes_in_group("player")[0]
 @export var Bullet : PackedScene
 
 var speed : float = 0.0

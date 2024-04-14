@@ -7,10 +7,13 @@ func _init():
 	is_friendly = false
 	rotation_speed = 200.0
 
-var target_node : Node
+var target_node : Node 
+
+@onready
+var player = get_tree().get_nodes_in_group("player")[0]
 
 func _ready():
-	target_node = get_node("/root/Game/Player") # This needs updating in new scenes
+	target_node = player
 
 func _physics_process(delta):
 	if target_node:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://diob3t7sjb0h6"]
+[gd_scene load_steps=4 format=3 uid="uid://6voxwetp1ulp"]
 
 [ext_resource type="Script" path="res://summons/projectiles/HomingProjectile.gd" id="1_5jd7t"]
 [ext_resource type="Texture2D" uid="uid://x8bsyj3qpebq" path="res://assets/aseprite/sprite_sheets/crystal_projectile.png" id="2_snc8a"]
@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq518"]
 radius = 3.0
 
-[node name="HomingProjectile" type="Area2D"]
+[node name="HomingProjectile" type="Area2D" groups=["enemyProjectile"]]
 texture_filter = 1
 collision_layer = 2
 collision_mask = 2
