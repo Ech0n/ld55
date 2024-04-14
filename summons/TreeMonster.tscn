@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://nmhdaccllbi3" path="res://assets/aseprite/ent.png" id="1_7wvc8"]
 [ext_resource type="Script" path="res://summons/TreeMonster.gd" id="1_dpbbm"]
-[ext_resource type="PackedScene" uid="uid://w4ojn3p1iduj" path="res://summons/projectiles/ArcingProjectile.tscn" id="2_1x3f3"]
+[ext_resource type="PackedScene" uid="uid://slwdlffmyotb" path="res://summons/projectiles/ArcingProjectile.tscn" id="2_1x3f3"]
 [ext_resource type="Texture2D" uid="uid://bbup4ym7nw5hk" path="res://assets/aseprite/ent_attack.png" id="3_0brjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cq1x6"]

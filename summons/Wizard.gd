@@ -45,7 +45,6 @@ func attack_player():
 		curr_homing_attack_cooldown -= 1
 	
 	if curr_ring_attack_cooldown == 0:
-		print(ring_attack_counter)
 		var num_projectiles = 24
 		var spread_angle = 360 / num_projectiles
 		
