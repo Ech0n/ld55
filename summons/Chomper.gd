@@ -2,7 +2,7 @@ class_name Chomper
 extends "EnemyInterface.gd"
 
 func _init():
-	speed = 6.0
+	speed = 8.0
 	player = null
 	in_attack_range = false
 	curr_health = 500
