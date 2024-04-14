@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cipcjn4pvmnjv" path="res://assets/aseprite/projectiles/fire_projectile.png" id="2_vtcpc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq518"]
+radius = 3.0
 
 [node name="FireProjectile" type="Area2D"]
 collision_layer = 2

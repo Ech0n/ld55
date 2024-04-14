@@ -93,6 +93,5 @@ func take_damage(damage : float):
 	curr_health -= damage
 	particleManager.restart()
 	if curr_health <= 0:
-		print(name + " DEATH")
 		queue_free()
 
