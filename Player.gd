@@ -37,6 +37,15 @@ var curr_summons = []
 
 var state = "idle"
 
+@onready
+var walk_sound=$walk_sound
+@onready
+var dash_sound=$dash_sound
+@onready
+var sword_sound=$sword_sound
+@onready
+var dmg_sound=$dmg_sound
+
 
 @onready
 var summonManager = get_tree().get_nodes_in_group("manager")[0]
@@ -67,8 +76,11 @@ func _physics_process(delta):
 	footstepsPartivcler.emitting = false
 	
 	if(state=="idle"):
+		walk_sound.stop()
 		animSprite.play("idle")
 		if direction != Vector2.ZERO:
+			walk_sound.play()
+
 			state="walk"
 		if attack:
 			state="attack"
@@ -87,6 +99,7 @@ func _physics_process(delta):
 		elif getDashInput():
 			state="dash"
 		else:
+			walk_sound.stop()
 			state = "idle"
 	if(state == "attack"):
 		velocity = direction.normalized() * SPEED
@@ -98,6 +111,7 @@ func _physics_process(delta):
 		dashTimer+= delta
 		velocity = dashDir.normalized() * SPEED * dashSpeed
 		animSprite.play("dash")
+		dash_sound.play()
 		if dashTimer > dash_time:
 			state = 'idle'
 			animSprite.play("idle")
@@ -115,6 +129,7 @@ func _physics_process(delta):
 	update_health_label()
 
 func attack():
+	sword_sound.play()
 	var bodies = swordArea.get_overlapping_bodies()
 	for b in bodies:
 		if b.is_in_group("enemy"):
@@ -171,6 +186,7 @@ func _process(delta):
 		
 		
 func take_damage(damage):
+	dmg_sound.play()
 	curr_health -= damage/dmg_reduction
 	if curr_health < 0:
 		_on_dead.emit()
