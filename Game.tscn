@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://wbm1cfcspuc"]
+[gd_scene load_steps=6 format=3 uid="uid://wbm1cfcspuc"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_2scey"]
 [ext_resource type="PackedScene" uid="uid://dncbkagq5sy6r" path="res://levels/MainMenu.tscn" id="2_lkuff"]
 [ext_resource type="PackedScene" uid="uid://hmehcot8tl2d" path="res://levels/Levels.tscn" id="4_7xad7"]
+[ext_resource type="PackedScene" uid="uid://daaqucxxv7k0s" path="res://levels/DeathSplash.tscn" id="4_dn0o6"]
 [ext_resource type="PackedScene" uid="uid://drsa1u2n1w2e" path="res://levels/intro.tscn" id="6_pt4he"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2scey")
 levels = ExtResource("4_7xad7")
 intro = ExtResource("6_pt4he")
+deathSplashScreen = ExtResource("4_dn0o6")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_lkuff")]
 

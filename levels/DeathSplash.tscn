@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://daaqucxxv7k0s"]
+
+[ext_resource type="Script" path="res://levels/DeathSplash.gd" id="1_he1vg"]
+[ext_resource type="FontFile" uid="uid://clhx60k1118kn" path="res://assets/Kurale-Regular.ttf" id="2_p6bh4"]
+[ext_resource type="Texture2D" uid="uid://b3pkppdvggg4w" path="res://assets/splash.png" id="2_q4ht4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_veglk"]
+font = ExtResource("2_p6bh4")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_fefi2"]
+font = ExtResource("2_p6bh4")
+font_size = 20
+
+[node name="DeathSplash" type="Node2D"]
+process_mode = 2
+z_index = 7
+script = ExtResource("1_he1vg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -215.0
+offset_top = -145.0
+offset_right = 213.0
+offset_bottom = 149.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.081
+anchor_bottom = 1.061
+offset_left = -246.0
+offset_top = -129.0
+offset_right = 231.332
+offset_bottom = 119.066
+texture = ExtResource("2_q4ht4")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 433.0
+offset_bottom = 179.0
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_veglk")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 155.0
+offset_right = 433.0
+offset_bottom = 190.0
+text = "respawning..."
+label_settings = SubResource("LabelSettings_fefi2")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]

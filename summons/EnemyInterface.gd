@@ -63,7 +63,7 @@ func _physics_process(delta):
 			position = position.lerp(player.position, delta * speed)
 	
 	if touching_player:
-		player.take_damage(thorns_damage)
+		player.take_damage(thorns_damage) 
 
 
 func _on_detection_area_body_entered(body):

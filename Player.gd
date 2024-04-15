@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal _on_dead
+
 @onready
 var animSprite = $AnimatedSprite2D
 
@@ -167,7 +169,7 @@ func _process(delta):
 func take_damage(damage):
 	curr_health -= damage/dmg_reduction
 	if curr_health < 0:
-		pass # Death happens here
+		_on_dead.emit()
 
 func delete_summon(summon):
 	curr_summons.erase(summon)
