@@ -12,6 +12,8 @@ var player = get_tree().get_nodes_in_group("player")[0]
 #import enemies
 @export_category("enemies")
 @export var enemies: Array[PackedScene]
+@export_group("enemy unlock level")
+@export var unlockLevel: Array[int]
 
 
 var screenRadius = 300
@@ -30,8 +32,13 @@ func _on_timer_timeout():
 		print("not spawning more", get_child_count())
 		return
 	print("spawning more", get_child_count())
+	var findIndexOfStrongestPossibleEnemy :int  = 0
+	while findIndexOfStrongestPossibleEnemy < unlockLevel.size() and unlockLevel[findIndexOfStrongestPossibleEnemy] < player.upgrades:
+		findIndexOfStrongestPossibleEnemy += 1
+	var randInd =  randi_range(0,findIndexOfStrongestPossibleEnemy)
+	var pickEnemy = enemies[randInd]
 	
-	var pickEnemy = enemies[randi() % enemies.size()]
+	print(" plu: ",player.upgrades, "mx: ",findIndexOfStrongestPossibleEnemy," spawniong index: ",randInd, pickEnemy)
 	#var pickEnemy = enemies[0]
 	var p = rand_circle(screenRadius)
 	var inst = pickEnemy.instantiate()
