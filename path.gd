@@ -14,16 +14,19 @@ var player = get_tree().get_nodes_in_group("player")[0]
 @onready
 var gpsPath = player.get_node("gpsPath")
 
+@export
+var generate_torches : bool = true
 
 var arrowObj : Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(curve.point_count):
-		var p = curve.get_point_position(i)
-		print(p,i)
-		var torch_instance = torch.instantiate()
-		add_child(torch_instance)
-		torch_instance.transform.origin = p
+	if(generate_torches):
+		for i in range(curve.point_count):
+			var p = curve.get_point_position(i)
+			print(p,i)
+			var torch_instance = torch.instantiate()
+			add_child(torch_instance)
+			torch_instance.transform.origin = p
 	arrowObj = gpsArrow.instantiate()
 	add_child(arrowObj)
 
