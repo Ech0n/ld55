@@ -36,6 +36,9 @@ var curr_summons = []
 
 var state = "idle"
 
+@onready
+var summonManager = get_tree().get_root().get_node("Levels/sumonManager")
+
 func _ready():
 	animSprite.play("idle")
 
@@ -174,7 +177,9 @@ func take_damage(damage):
 func delete_summon(summon):
 	curr_summons.erase(summon)
 
-func add_summon(summon):
+func add_summon(smn):
+	summonManager.summon(smn)
+	
 	if len(curr_summons) == 3:
 		return
-	curr_summons.append(summon)
+	#curr_summons.append(smn)

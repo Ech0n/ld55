@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://rbgh3ffxj22p"]
+[gd_scene load_steps=9 format=3 uid="uid://rbgh3ffxj22p"]
 
 [ext_resource type="Script" path="res://summons/AngelSummon.gd" id="1_qnurc"]
 [ext_resource type="Texture2D" uid="uid://du4kr3mmv828" path="res://assets/aseprite/sprite_sheets/godhead-Sheet.png" id="2_byuib"]
-[ext_resource type="PackedScene" uid="uid://dsire7cgplmo7" path="res://summons/projectiles/SummonProjectile.tscn" id="2_ekrho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuypm"]
 atlas = ExtResource("2_byuib")
@@ -48,7 +47,6 @@ scale = Vector2(1.2, 1.2)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_qnurc")
-Bullet = ExtResource("2_ekrho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -1,11 +1,13 @@
 class_name Book3
 extends Item
 
+var angel = load("res://summons/summon.tscn").instantiate()
+
+
 func _init():
-	itemName = "Book"
+	itemName = "Book 1"
 	texture = load("res://assets/aseprite/Items/book3.png")
 	itemDescription = "Summon new friend"
 	
 func collect(player):
-	player.dmg_reduction += 1
-	print("book3")
+	player.add_summon(angel)

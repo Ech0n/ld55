@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 @onready var player = get_tree().get_nodes_in_group("player")[0]
-@export var Bullet : PackedScene
+
+@onready
+var Bullet : PackedScene = load("res://summons/projectiles/SummonProjectile.tscn")
 
 var speed : float = 0.0
 var damage : float = 0.0

@@ -11,9 +11,6 @@ process_mode = 1
 texture_filter = 1
 script = ExtResource("1_r8o2h")
 
-[node name="sumonManager" type="Node2D" parent="."]
-script = ExtResource("5_2x1ex")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.8, 0.8)
 drag_horizontal_enabled = true
@@ -87,5 +84,8 @@ position = Vector2(5981, -3115)
 
 [node name="Main_chest20" parent="Chests" instance=ExtResource("3_jj5je")]
 position = Vector2(6581, -3895)
+
+[node name="SummonMangager" type="Node2D" parent="."]
+script = ExtResource("5_2x1ex")
 
 [connection signal="_on_dead" from="Player" to="." method="_on_player__on_dead"]

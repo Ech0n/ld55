@@ -35,6 +35,7 @@ torch = ExtResource("3_ibwxe")
 gpsArrow = ExtResource("4_0y4xm")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_8pv0t")]
+visible = false
 max_enemies = 15
 enemies = Array[PackedScene]([ExtResource("6_cr36c"), ExtResource("7_u0cmc"), ExtResource("8_hrpuu"), ExtResource("9_s3yp1"), ExtResource("10_dy01v"), ExtResource("11_k5im3")])
 
