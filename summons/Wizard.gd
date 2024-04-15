@@ -5,6 +5,7 @@ extends "EnemyInterface.gd"
 @export var ArcingBullet : PackedScene
 @export var NormalBullet : PackedScene
 
+var credits = preload("res://levels/Credits.tscn").instantiate()
 
 func _init():
 	speed = 0.25
@@ -25,6 +26,14 @@ var curr_ring_attack_cooldown : float = 0.0
 var curr_main_attack_cooldown : float = 0.0
 var rot_speed : float = 60.0
 var ring_attack_counter : int = 0
+
+
+func take_damage(damage : float):
+	curr_health -= damage
+	particleManager.restart()
+	if curr_health <= 0:
+		get_tree().get_root().add_child(credits)
+		queue_free()
 
 
 func attack_player():

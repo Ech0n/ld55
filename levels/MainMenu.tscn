@@ -46,7 +46,7 @@ tracks/0/path = NodePath("skelly:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5, 8, 9, 11.5, 16),
+"times": PackedFloat32Array(0, 2.5, 8, 9, 11.5, 15),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(209, -1), Vector2(209, -1), Vector2(446, -1), Vector2(209, -1), Vector2(209, -1), Vector2(446, -1)]
@@ -82,7 +82,7 @@ tracks/3/path = NodePath("skelly:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.25801, 8, 9, 11.258, 16),
+"times": PackedFloat32Array(0, 2.25801, 8, 9, 11.258, 15),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, false, true, false]
@@ -94,7 +94,7 @@ tracks/4/path = NodePath("wandParticles:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 2, 9, 11, 16),
+"times": PackedFloat32Array(0, 2, 9, 11, 15),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true]
@@ -106,7 +106,7 @@ tracks/5/path = NodePath("skelly:animation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 2.5, 8, 9, 11.5, 16),
+"times": PackedFloat32Array(0, 2.5, 8, 9, 11.5, 15),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [&"idle", &"walk", &"idle", &"idle", &"walk", &"idle"]
@@ -367,11 +367,11 @@ position = Vector2(156, 0)
 sprite_frames = SubResource("SpriteFrames_iw3g5")
 autoplay = "default"
 frame_progress = 0.633464
-speed_scale = 0.0
 
 [node name="skelly" parent="animation" instance=ExtResource("2_nrnr7")]
-position = Vector2(265.018, -1)
-animation = &"walk"
+visible = false
+position = Vector2(209, -1)
+animation = &"idle"
 autoplay = "walk"
 frame = 0
 frame_progress = 0.0
@@ -413,7 +413,6 @@ blend_times = [&"main_menu", &"main_menu", 0.001]
 
 [node name="wandParticles" type="CPUParticles2D" parent="animation"]
 position = Vector2(161, -12)
-emitting = false
 amount = 24
 lifetime = 0.4
 speed_scale = 0.33

@@ -5,7 +5,7 @@ extends "EnemyInterface.gd"
 
 func _init():
 	speed = 0.5
-	curr_health = 200
+	curr_health = 125
 	attack_cooldown = 40
 	damage = 50
 	is_ranged = true

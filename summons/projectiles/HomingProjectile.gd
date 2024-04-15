@@ -2,10 +2,10 @@ class_name HomingProjectile
 extends "ProjectileInterface.gd"
 
 func _init():
-	speed = 150.0
+	speed = 75.0
 	time_to_live = 3.0
 	is_friendly = false
-	rotation_speed = 200.0
+	rotation_speed = 150.0
 
 var target_node : Node 
 

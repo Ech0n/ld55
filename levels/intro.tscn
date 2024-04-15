@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://drsa1u2n1w2e"]
 
-[ext_resource type="PackedScene" path="res://skeletonSprite.tscn" id="1_5f77d"]
+[ext_resource type="PackedScene" uid="uid://dm1f8g08sushs" path="res://skeletonSprite.tscn" id="1_5f77d"]
 [ext_resource type="Script" path="res://levels/intro.gd" id="1_lqs36"]
 [ext_resource type="Script" path="res://levels/animateEverySkeleton.gd" id="1_r3prl"]
 [ext_resource type="TileSet" uid="uid://bsxek2ksnygtu" path="res://levels/myTileset.tres" id="3_40y7x"]
