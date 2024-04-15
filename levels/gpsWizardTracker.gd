@@ -22,12 +22,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var wizPos = wiz.position
-	if player.position.distance_to(wizPos) > activation_distance:
-		arrowObj.visible = true
-		var gpsPos = gpsPath.curve.get_closest_point(wizPos - player.transform.origin ) + player.transform.origin
-		arrowObj.position  =gpsPos
-		arrowObj.look_at(wizPos)
-	else:
-		arrowObj.visible = false
-	
+	if is_instance_valid(wiz):
+		var wizPos = wiz.position
+		if player.position.distance_to(wizPos) > activation_distance:
+			arrowObj.visible = true
+			var gpsPos = gpsPath.curve.get_closest_point(wizPos - player.transform.origin ) + player.transform.origin
+			arrowObj.position  =gpsPos
+			arrowObj.look_at(wizPos)
+		else:
+			arrowObj.visible = false
+		

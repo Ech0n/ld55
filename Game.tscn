@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wbm1cfcspuc"]
+[gd_scene load_steps=7 format=3 uid="uid://wbm1cfcspuc"]
 
 [ext_resource type="Script" path="res://LevelController.gd" id="1_2scey"]
 [ext_resource type="PackedScene" uid="uid://dncbkagq5sy6r" path="res://levels/MainMenu.tscn" id="2_lkuff"]
 [ext_resource type="PackedScene" uid="uid://hmehcot8tl2d" path="res://levels/Levels.tscn" id="4_7xad7"]
 [ext_resource type="PackedScene" uid="uid://daaqucxxv7k0s" path="res://levels/DeathSplash.tscn" id="4_dn0o6"]
+[ext_resource type="AudioStream" uid="uid://cv1q1ldua0d6b" path="res://sounds/song.mp3" id="6_45dg4"]
 [ext_resource type="PackedScene" uid="uid://drsa1u2n1w2e" path="res://levels/intro.tscn" id="6_pt4he"]
 
 [node name="Game" type="Node2D"]
@@ -13,5 +14,9 @@ intro = ExtResource("6_pt4he")
 deathSplashScreen = ExtResource("4_dn0o6")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_lkuff")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_45dg4")
+autoplay = true
 
 [connection signal="game_started" from="MainMenu" to="." method="_on_game_started"]

@@ -15,8 +15,9 @@ func _process(_delta):
 			_on_portal_used.emit()
 
 func _on_area_entered(area):
-	popup.visible = true
-	portalActive = true
+	if area.is_in_group("portal"):
+		popup.visible = true
+		portalActive = true
 	
 
 func _on_area_exited(area):

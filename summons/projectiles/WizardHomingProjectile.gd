@@ -10,7 +10,7 @@ func _init():
 var target_node : Node
 
 func _ready():
-	target_node = get_node("/root/Game/Player") # This needs updating in new scenes
+	target_node = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta):
 	if target_node:
