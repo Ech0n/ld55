@@ -244,10 +244,15 @@ position = Vector2(11499, -3482)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 texture_filter = 1
-offset_left = 431.0
-offset_top = 307.0
-offset_right = 637.0
-offset_bottom = 388.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
 nine_patch_stretch = true
 texture_under = ExtResource("17_368b8")
 texture_progress = ExtResource("18_xwxb1")
