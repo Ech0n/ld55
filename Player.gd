@@ -186,3 +186,14 @@ func add_summon(smn):
 	if len(curr_summons) == 3:
 		return
 	#curr_summons.append(smn)
+
+var gpsDest = null
+
+func _on_area_area_entered(area):
+	print("area ent",area)
+	if area.is_in_group("nav"):
+		print("further")
+		
+		var cord = area.get_node("dest")
+		if cord:
+			gpsDest = cord.position

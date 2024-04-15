@@ -21,7 +21,9 @@ drag_vertical_enabled = true
 [node name="LavaLand" parent="." instance=ExtResource("2_pror3")]
 
 [node name="Player" parent="." instance=ExtResource("1_vtqh4")]
+sword_damge = 35.0
 dash_time = 0.3
+dashSpeed = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")

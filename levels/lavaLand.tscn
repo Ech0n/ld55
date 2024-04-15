@@ -1,12 +1,13 @@
 [gd_scene load_steps=23 format=3 uid="uid://2bmdm3p4j43o"]
 
+
+
 [ext_resource type="TileSet" uid="uid://bsxek2ksnygtu" path="res://levels/myTileset.tres" id="1_0nob7"]
 [ext_resource type="Script" path="res://levels/lavaLand.gd" id="1_svco5"]
 [ext_resource type="Script" path="res://path.gd" id="2_dbxc3"]
 [ext_resource type="PackedScene" uid="uid://slm3jyju32tp" path="res://torch.tscn" id="3_ibwxe"]
-[ext_resource type="PackedScene" uid="uid://dr7llyqut1o80" path="res://gps_arrow.tscn" id="4_0y4xm"]
 [ext_resource type="PackedScene" uid="uid://bau5s8urkw213" path="res://enemy_spawner.tscn" id="5_8pv0t"]
-[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/slime.tscn" id="6_cr36c"]
+[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/Slime.tscn" id="6_cr36c"]
 [ext_resource type="PackedScene" uid="uid://c61o53qdtw60n" path="res://summons/TreeMonster.tscn" id="7_u0cmc"]
 [ext_resource type="PackedScene" uid="uid://jh177pu1xvm8" path="res://summons/Chomper.tscn" id="8_hrpuu"]
 [ext_resource type="PackedScene" uid="uid://b7qikvm577rkw" path="res://summons/FireCreature.tscn" id="9_s3yp1"]
@@ -15,10 +16,9 @@
 [ext_resource type="TileSet" uid="uid://b6ekbvw1mqim3" path="res://levels/bg_tileset.tres" id="12_5bdjv"]
 [ext_resource type="Texture2D" uid="uid://brl5luc7vpsy2" path="res://assets/summoning_ring_bluet.png" id="13_6rc2a"]
 [ext_resource type="Script" path="res://levels/BossFightPortal.gd" id="14_cc3u5"]
-[ext_resource type="Texture2D" uid="uid://p2n2gu5ihoc1" path="res://assets/aseprite/Health_bar.png" id="16_cg4el"]
-[ext_resource type="Texture2D" uid="uid://d22e2w28so8kf" path="res://assets/aseprite/Health.png" id="17_ylh41"]
-[ext_resource type="Script" path="res://TextureProgressBar.gd" id="18_mm28u"]
-[ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="19_5eykq"]
+
+[ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="16_koa8h"]
+[ext_resource type="Script" path="res://levels/NavigationZones.gd" id="17_f7mtd"]
 
 [sub_resource type="Curve2D" id="Curve2D_r75wo"]
 _data = {
@@ -30,6 +30,21 @@ point_count = 23
 size = Vector2(82, 52)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7uoe4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ly31"]
+size = Vector2(1480.5, 1372.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2mef"]
+size = Vector2(1383.08, 1406.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7no50"]
+size = Vector2(2822.16, 1372.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je353"]
+size = Vector2(2928.54, 1406.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klkal"]
+size = Vector2(6444.27, 1614.13)
 
 [node name="LavaLand" type="Node2D"]
 texture_filter = 1
@@ -46,11 +61,10 @@ layer_0/tile_data = PackedInt32Array(-65540, 65536, 2, -4, 65536, 2, 65532, 6553
 curve = SubResource("Curve2D_r75wo")
 script = ExtResource("2_dbxc3")
 torch = ExtResource("3_ibwxe")
-gpsArrow = ExtResource("4_0y4xm")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_8pv0t")]
 max_enemies = 12
-enemies = Array[PackedScene]([ExtResource("6_cr36c"), ExtResource("7_u0cmc"), ExtResource("9_s3yp1"), ExtResource("10_dy01v"), ExtResource("8_hrpuu"), ExtResource("11_k5im3")])
+enemies = Array[PackedScene]([ExtResource("6_cr36c"), ExtResource("9_s3yp1"), ExtResource("10_dy01v"), ExtResource("8_hrpuu"), ExtResource("7_u0cmc"), ExtResource("11_k5im3")])
 unlockLevel = Array[int]([1, 3, 5, 7, 8, 8])
 
 [node name="bgtiles" type="TileMap" parent="." groups=["env"]]
@@ -89,6 +103,7 @@ text = "press F to fight summoner Boss"
 label_settings = SubResource("LabelSettings_7uoe4")
 horizontal_alignment = 1
 
+<<<<<<< HEAD
 [node name="Health bar" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Health bar"]
@@ -170,6 +185,145 @@ position = Vector2(5981, -3115)
 [node name="Main_chest20" parent="Chests" instance=ExtResource("19_5eykq")]
 position = Vector2(6581, -3895)
 
+=======
+[node name="Chests" type="Node2D" parent="."]
+
+[node name="Main_chest" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(158, 34)
+
+[node name="Main_chest2" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(-209, -190)
+
+[node name="Main_chest3" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(533, -501)
+
+[node name="Main_chest4" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(-414, 152)
+
+[node name="Main_chest5" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(1015, -137)
+
+[node name="Main_chest6" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(1774, -769)
+
+[node name="Main_chest7" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(2587, -654)
+
+[node name="Main_chest8" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(1473, 72)
+
+[node name="Main_chest9" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(4523, -1543)
+
+[node name="Main_chest10" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(4077, -2325)
+
+[node name="Main_chest11" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(5787, -3658)
+
+[node name="Main_chest12" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(7345, -3533)
+
+[node name="Main_chest13" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(10438, -3604)
+
+[node name="Main_chest14" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(10468, -3137)
+
+[node name="Main_chest15" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(8316, -3640)
+
+[node name="Main_chest16" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(3628, -1836)
+
+[node name="Main_chest17" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(4492, -3309)
+
+[node name="Main_chest18" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(5151, -2763)
+
+[node name="Main_chest19" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(5981, -3115)
+
+[node name="Main_chest20" parent="Chests" instance=ExtResource("16_koa8h")]
+position = Vector2(6581, -3895)
+
+[node name="NavigationZones" type="Node2D" parent="." groups=["nav"]]
+script = ExtResource("17_f7mtd")
+
+[node name="Area2D" type="Area2D" parent="NavigationZones" groups=["nav"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationZones/Area2D"]
+position = Vector2(-51, -92)
+shape = SubResource("RectangleShape2D_8ly31")
+debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
+
+[node name="dest" type="Node2D" parent="NavigationZones/Area2D"]
+position = Vector2(965, -327)
+
+[node name="Area2D3" type="Area2D" parent="NavigationZones" groups=["nav"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationZones/Area2D3"]
+position = Vector2(1429, -357)
+shape = SubResource("RectangleShape2D_t2mef")
+debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
+
+[node name="dest" type="Node2D" parent="NavigationZones/Area2D3"]
+position = Vector2(2331, -609)
+
+[node name="Area2D4" type="Area2D" parent="NavigationZones" groups=["nav"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationZones/Area2D4"]
+position = Vector2(3629, -558)
+shape = SubResource("RectangleShape2D_7no50")
+debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
+
+[node name="dest" type="Node2D" parent="NavigationZones/Area2D4"]
+position = Vector2(3865, -1316)
+
+[node name="Area2D5" type="Area2D" parent="NavigationZones" groups=["nav"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationZones/Area2D5"]
+position = Vector2(3907, -1981)
+shape = SubResource("RectangleShape2D_t2mef")
+debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
+
+[node name="dest" type="Node2D" parent="NavigationZones/Area2D5"]
+position = Vector2(4577, -2920)
+
+[node name="Area2D6" type="Area2D" parent="NavigationZones" groups=["nav"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationZones/Area2D6"]
+position = Vector2(4787.73, -3445)
+shape = SubResource("RectangleShape2D_je353")
+debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
+
+[node name="dest" type="Node2D" parent="NavigationZones/Area2D6"]
+position = Vector2(6544, -3584)
+
+[node name="Area2D7" type="Area2D" parent="NavigationZones" groups=["nav"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationZones/Area2D7"]
+position = Vector2(9577.87, -3375.06)
+shape = SubResource("RectangleShape2D_klkal")
+debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
+
+[node name="dest" type="Node2D" parent="NavigationZones/Area2D7"]
+position = Vector2(11499, -3482)
+
+>>>>>>> d4322a49bc64fca2f2d33faedbeb4fca185077cf
 [connection signal="_on_portal_used" from="BossFightPortal" to="." method="_on_boss_fight_portal__on_portal_used"]
 [connection signal="area_entered" from="BossFightPortal" to="BossFightPortal" method="_on_area_entered"]
 [connection signal="area_exited" from="BossFightPortal" to="BossFightPortal" method="_on_area_exited"]
