@@ -123,8 +123,6 @@ func attack():
 			b.queue_free()
 
 func update_health_label():
-	healthLabel.text = "Health: %d" % curr_health
-	healthLabel.position = Vector2(0, -50)
 	health_change.emit()
 
 func getDashInput():
