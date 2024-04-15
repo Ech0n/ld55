@@ -88,4 +88,5 @@ position = Vector2(5981, -3115)
 [node name="Main_chest20" parent="Chests" instance=ExtResource("3_jj5je")]
 position = Vector2(6581, -3895)
 
+[connection signal="_on_portal_used" from="LavaLand" to="." method="_on_lava_land__on_portal_used"]
 [connection signal="_on_dead" from="Player" to="." method="_on_player__on_dead"]
