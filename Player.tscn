@@ -56,6 +56,7 @@ offset_bottom = 23.0
 scale = Vector2(0.3, 0.3)
 
 [node name="gpsPath" type="Path2D" parent="."]
+scale = Vector2(1.5, 1.5)
 curve = SubResource("Curve2D_jreu5")
 
 [node name="footstepsParticles" type="GPUParticles2D" parent="."]

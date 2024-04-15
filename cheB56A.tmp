@@ -1,0 +1,262 @@
+[gd_scene load_steps=41 format=3 uid="uid://bl2c7888pjs7b"]
+
+[ext_resource type="Texture2D" uid="uid://deb47rv0axyrw" path="res://assets/aseprite/chest.png" id="1_n3cic"]
+[ext_resource type="Script" path="res://chest.gd" id="1_rsl62"]
+[ext_resource type="PackedScene" uid="uid://bvtiqlndi2xg5" path="res://chest_contents/armor_blue.tscn" id="3_sck5h"]
+[ext_resource type="PackedScene" uid="uid://bb7l4vkgmx0b1" path="res://chest_contents/armor_book1.tscn" id="4_ld63i"]
+[ext_resource type="PackedScene" uid="uid://ccas6jd5sb0go" path="res://chest_contents/armor_book2.tscn" id="5_c72hp"]
+[ext_resource type="PackedScene" uid="uid://rd5l6fe1tb4t" path="res://chest_contents/armor_book3.tscn" id="6_fh8lu"]
+[ext_resource type="PackedScene" uid="uid://b65p70urdgtvc" path="res://chest_contents/armor_dumbell.tscn" id="7_bodno"]
+[ext_resource type="PackedScene" uid="uid://74xv5eis175y" path="res://chest_contents/armor_milk.tscn" id="8_gp2dj"]
+[ext_resource type="PackedScene" uid="uid://re284wytsxnq" path="res://chest_contents/armor_red.tscn" id="9_khpv1"]
+[ext_resource type="PackedScene" uid="uid://cv2jh55ljufbm" path="res://chest_contents/armor_shoes.tscn" id="10_imi7q"]
+[ext_resource type="PackedScene" uid="uid://jdsp5j68faw5" path="res://chest_contents/blue_book1.tscn" id="11_uso4c"]
+[ext_resource type="PackedScene" uid="uid://bisqp3gq588gd" path="res://chest_contents/blue_book2.tscn" id="12_xaui6"]
+[ext_resource type="PackedScene" uid="uid://bgq6xct78fudk" path="res://chest_contents/blue_book3.tscn" id="13_786tu"]
+[ext_resource type="PackedScene" uid="uid://bphcvmhue1owr" path="res://chest_contents/blue_dumbell.tscn" id="14_ginuu"]
+[ext_resource type="PackedScene" uid="uid://huo00agm6xel" path="res://chest_contents/blue_milk.tscn" id="15_shldu"]
+[ext_resource type="PackedScene" uid="uid://dnfvag7p3u3el" path="res://chest_contents/blue_red.tscn" id="16_c86dh"]
+[ext_resource type="PackedScene" uid="uid://by7uqpxtv3fp4" path="res://chest_contents/blue_shoes.tscn" id="17_3os31"]
+[ext_resource type="PackedScene" uid="uid://bct6w6xst3u2o" path="res://chest_contents/book1_book2.tscn" id="18_t0tfo"]
+[ext_resource type="PackedScene" uid="uid://dvygw2051ygj2" path="res://chest_contents/book1_book3.tscn" id="19_76euo"]
+[ext_resource type="PackedScene" uid="uid://bi852lglq8gm7" path="res://chest_contents/book1_dumbell.tscn" id="20_tkhjd"]
+[ext_resource type="PackedScene" uid="uid://c80c41x4y1coq" path="res://chest_contents/book1_milk.tscn" id="21_s8a1u"]
+[ext_resource type="PackedScene" uid="uid://d1icpeloks0rw" path="res://chest_contents/book1_red.tscn" id="22_wjh3q"]
+[ext_resource type="PackedScene" uid="uid://cp6dn6dw0bk2" path="res://chest_contents/book1_shoes.tscn" id="23_hac6u"]
+[ext_resource type="PackedScene" uid="uid://dbk03s5kkwy5d" path="res://chest_contents/book2_book3.tscn" id="24_oiykq"]
+[ext_resource type="PackedScene" uid="uid://du1wfbb7wdd1v" path="res://chest_contents/book2_dumbell.tscn" id="25_tm08a"]
+[ext_resource type="PackedScene" uid="uid://bgvs3qalfiaa2" path="res://chest_contents/book2_milk.tscn" id="26_rux0j"]
+[ext_resource type="PackedScene" uid="uid://pteo5s1lky1t" path="res://chest_contents/book2_red.tscn" id="27_xf5i5"]
+[ext_resource type="PackedScene" uid="uid://cmxaois8gxqrd" path="res://chest_contents/book2_shoes.tscn" id="28_5t30e"]
+[ext_resource type="PackedScene" uid="uid://dyijwev6wetb5" path="res://chest_contents/book3_dumbell.tscn" id="29_7h7ig"]
+[ext_resource type="PackedScene" uid="uid://bbl3221wm7g85" path="res://chest_contents/book3_milk.tscn" id="30_tb07m"]
+[ext_resource type="PackedScene" uid="uid://idm40l4cm7ub" path="res://chest_contents/book3_red.tscn" id="31_jjjm1"]
+[ext_resource type="PackedScene" uid="uid://d77cxv68wd3m" path="res://chest_contents/book3_shoes.tscn" id="32_lc32v"]
+[ext_resource type="PackedScene" uid="uid://db37d5qr3js7n" path="res://chest_contents/dumbell_milk.tscn" id="33_woye3"]
+[ext_resource type="PackedScene" uid="uid://s4gjkjrxjrra" path="res://chest_contents/dumbell_red.tscn" id="34_xary8"]
+[ext_resource type="PackedScene" uid="uid://dbtg6pvv4ygk4" path="res://chest_contents/dumbell_shoes.tscn" id="35_2j75t"]
+[ext_resource type="PackedScene" uid="uid://dqn762s0jhi6q" path="res://chest_contents/milk_shoes.tscn" id="36_txdrt"]
+[ext_resource type="PackedScene" uid="uid://qrkhninf6lnr" path="res://chest_contents/red_milk.tscn" id="37_cgecp"]
+[ext_resource type="PackedScene" uid="uid://hwhd0g8kku4j" path="res://chest_contents/red_shoes.tscn" id="38_a0otq"]
+[ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="39_8fmak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tghdv"]
+size = Vector2(14, 13)
+
+[node name="Main_chest" type="StaticBody2D"]
+script = ExtResource("1_rsl62")
+
+[node name="Chest" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_n3cic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_tghdv")
+
+[node name="Control" parent="." instance=ExtResource("3_sck5h")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+
+[node name="Control2" parent="." instance=ExtResource("4_ld63i")]
+visible = false
+
+[node name="Control3" parent="." instance=ExtResource("5_c72hp")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Control4" parent="." instance=ExtResource("6_fh8lu")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Control5" parent="." instance=ExtResource("7_bodno")]
+visible = false
+
+[node name="Control6" parent="." instance=ExtResource("8_gp2dj")]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Control7" parent="." instance=ExtResource("9_khpv1")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Control8" parent="." instance=ExtResource("10_imi7q")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Control9" parent="." instance=ExtResource("11_uso4c")]
+visible = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Control10" parent="." instance=ExtResource("12_xaui6")]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Control11" parent="." instance=ExtResource("13_786tu")]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Control12" parent="." instance=ExtResource("14_ginuu")]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Control13" parent="." instance=ExtResource("15_shldu")]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Control14" parent="." instance=ExtResource("16_c86dh")]
+visible = false
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="Control15" parent="." instance=ExtResource("17_3os31")]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Control16" parent="." instance=ExtResource("18_t0tfo")]
+visible = false
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="Control17" parent="." instance=ExtResource("19_76euo")]
+visible = false
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="Control18" parent="." instance=ExtResource("20_tkhjd")]
+visible = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Control19" parent="." instance=ExtResource("21_s8a1u")]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Control20" parent="." instance=ExtResource("22_wjh3q")]
+visible = false
+
+[node name="Control21" parent="." instance=ExtResource("23_hac6u")]
+visible = false
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
+
+[node name="Control22" parent="." instance=ExtResource("24_oiykq")]
+visible = false
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Control23" parent="." instance=ExtResource("25_tm08a")]
+visible = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Control24" parent="." instance=ExtResource("26_rux0j")]
+visible = false
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="Control25" parent="." instance=ExtResource("27_xf5i5")]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="Control26" parent="." instance=ExtResource("28_5t30e")]
+visible = false
+
+[node name="Control27" parent="." instance=ExtResource("29_7h7ig")]
+visible = false
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+
+[node name="Control28" parent="." instance=ExtResource("30_tb07m")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Control29" parent="." instance=ExtResource("31_jjjm1")]
+visible = false
+
+[node name="Control30" parent="." instance=ExtResource("32_lc32v")]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Control31" parent="." instance=ExtResource("33_woye3")]
+visible = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Control32" parent="." instance=ExtResource("34_xary8")]
+visible = false
+offset_top = -1.0
+offset_bottom = -1.0
+
+[node name="Control33" parent="." instance=ExtResource("35_2j75t")]
+visible = false
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="Control34" parent="." instance=ExtResource("36_txdrt")]
+visible = false
+offset_top = 1.0
+offset_bottom = 1.0
+
+[node name="Control35" parent="." instance=ExtResource("37_cgecp")]
+visible = false
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Control36" parent="." instance=ExtResource("38_a0otq")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("39_8fmak")]
+position = Vector2(-106, -2)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

@@ -1,0 +1,108 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmpgkwg0j6fby"]
+
+[ext_resource type="Script" path="res://chest_contents/items/items_control.gd" id="1_01moj"]
+
+[node name="ItemsControl" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_01moj")
+
+[node name="ItemList" type="ItemList" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -117.0
+offset_top = -89.0
+offset_right = 120.0
+offset_bottom = 88.0
+max_columns = 2
+same_column_width = true
+fixed_column_width = 104
+icon_mode = 0
+
+[node name="_VScrollBar_351398" type="VScrollBar" parent="ItemList"]
+layout_mode = 0
+
+[node name="TextEdit" type="TextEdit" parent="ItemList"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 16.0
+offset_top = 65.0
+offset_right = 103.0
+offset_bottom = 170.0
+text = "More 
+defence"
+editable = false
+
+[node name="_HScrollBar_351399" type="HScrollBar" parent="ItemList/TextEdit"]
+visible = false
+layout_mode = 0
+offset_top = 97.0
+offset_right = 79.0
+offset_bottom = 105.0
+max_value = 0.0
+
+[node name="_VScrollBar_351400" type="VScrollBar" parent="ItemList/TextEdit"]
+visible = false
+layout_mode = 0
+offset_left = 79.0
+offset_top = 4.0
+offset_right = 87.0
+offset_bottom = 97.0
+max_value = 0.0
+
+[node name="_Timer_351401" type="Timer" parent="ItemList/TextEdit"]
+wait_time = 0.65
+
+[node name="_Timer_351402" type="Timer" parent="ItemList/TextEdit"]
+wait_time = 0.05
+
+[node name="_Timer_351403" type="Timer" parent="ItemList/TextEdit"]
+wait_time = 3.0
+one_shot = true
+
+[node name="TextEdit2" type="TextEdit" parent="ItemList"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 129.0
+offset_top = 64.0
+offset_right = 216.0
+offset_bottom = 169.0
+text = "Faster
+attacks"
+editable = false
+
+[node name="_HScrollBar_351404" type="HScrollBar" parent="ItemList/TextEdit2"]
+visible = false
+layout_mode = 0
+offset_top = 97.0
+offset_right = 79.0
+offset_bottom = 105.0
+max_value = 0.0
+
+[node name="_VScrollBar_351405" type="VScrollBar" parent="ItemList/TextEdit2"]
+visible = false
+layout_mode = 0
+offset_left = 79.0
+offset_top = 4.0
+offset_right = 87.0
+offset_bottom = 97.0
+max_value = 0.0
+
+[node name="_Timer_351406" type="Timer" parent="ItemList/TextEdit2"]
+wait_time = 0.65
+
+[node name="_Timer_351407" type="Timer" parent="ItemList/TextEdit2"]
+wait_time = 0.05
+
+[node name="_Timer_351408" type="Timer" parent="ItemList/TextEdit2"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

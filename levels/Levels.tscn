@@ -5,12 +5,7 @@
 
 [node name="Levels" type="Node2D"]
 process_mode = 1
-
-[node name="Player" parent="." instance=ExtResource("1_vtqh4")]
-sword_damge = 50.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+texture_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.8, 0.8)
@@ -18,3 +13,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="LavaLand" parent="." instance=ExtResource("2_pror3")]
+
+[node name="Player" parent="." instance=ExtResource("1_vtqh4")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

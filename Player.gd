@@ -15,6 +15,8 @@ var healthLabel = $HealthLabel
 @onready
 var footstepsPartivcler = $footstepsParticles
 
+#important value to update sine its related to dificulty scaling
+var upgrades = 0
 
 var SPEED = 150.0
 
