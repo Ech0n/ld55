@@ -16,6 +16,9 @@ func setup(item1:Item,item2:Item):
 	itList.add_item(it1.itemName,it1.texture)
 	itList.add_item(it2.itemName,it2.texture)
 	
+	$ItemList/TextEdit.text = it1.itemDescription
+	$ItemList/TextEdit2.text = it2.itemDescription
+	
 	
 
 func _on_item_list_item_selected(index):

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://52mlim3uk3nj"]
+[gd_scene load_steps=3 format=3 uid="uid://hmehcot8tl2d"]
 
 [ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="1_vtqh4"]
 [ext_resource type="PackedScene" uid="uid://2bmdm3p4j43o" path="res://levels/lavaLand.tscn" id="2_pror3"]
-[ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="3_jj5je"]
 
 [node name="Levels" type="Node2D"]
 process_mode = 1
@@ -19,62 +18,3 @@ drag_vertical_enabled = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
-[node name="Main_chest" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(158, 34)
-
-[node name="Main_chest2" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(-209, -190)
-
-[node name="Main_chest3" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(533, -501)
-
-[node name="Main_chest4" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(-414, 152)
-
-[node name="Main_chest5" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(1015, -137)
-
-[node name="Main_chest6" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(1774, -769)
-
-[node name="Main_chest7" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(2587, -654)
-
-[node name="Main_chest8" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(1473, 72)
-
-[node name="Main_chest9" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(4523, -1543)
-
-[node name="Main_chest10" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(4077, -2325)
-
-[node name="Main_chest11" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(5787, -3658)
-
-[node name="Main_chest12" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(7345, -3533)
-
-[node name="Main_chest13" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(10438, -3604)
-
-[node name="Main_chest14" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(10468, -3137)
-
-[node name="Main_chest15" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(8316, -3640)
-
-[node name="Main_chest16" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(3628, -1836)
-
-[node name="Main_chest17" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(4492, -3309)
-
-[node name="Main_chest18" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(5151, -2763)
-
-[node name="Main_chest19" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(5981, -3115)
-
-[node name="Main_chest20" parent="." instance=ExtResource("3_jj5je")]
-position = Vector2(6581, -3895)

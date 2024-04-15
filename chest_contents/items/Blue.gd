@@ -4,7 +4,9 @@ extends Item
 func _init():
 	itemName = "Blue Potion"
 	texture = load("res://assets/aseprite/Items/blue_pot.png")
-
+	itemDescription = "Makes your swings faster"
+	
 func collect(player):
-	player.dmg_reduction += 1
-	print("new dmg rred",player.dmg_reduction)
+
+	player.attack_cooldown -= 5
+	print("new cooldown",player.attack_cooldown)

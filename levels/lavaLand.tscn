@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://slm3jyju32tp" path="res://torch.tscn" id="3_ibwxe"]
 [ext_resource type="PackedScene" uid="uid://dr7llyqut1o80" path="res://gps_arrow.tscn" id="4_0y4xm"]
 [ext_resource type="PackedScene" uid="uid://bau5s8urkw213" path="res://enemy_spawner.tscn" id="5_8pv0t"]
-[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/slime.tscn" id="6_cr36c"]
+[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/Slime.tscn" id="6_cr36c"]
 [ext_resource type="PackedScene" uid="uid://c61o53qdtw60n" path="res://summons/TreeMonster.tscn" id="7_u0cmc"]
 [ext_resource type="PackedScene" uid="uid://jh177pu1xvm8" path="res://summons/Chomper.tscn" id="8_hrpuu"]
 [ext_resource type="PackedScene" uid="uid://b7qikvm577rkw" path="res://summons/FireCreature.tscn" id="9_s3yp1"]
 [ext_resource type="PackedScene" uid="uid://hh4a84o0ru7a" path="res://summons/CrystalMonster.tscn" id="10_dy01v"]
 [ext_resource type="PackedScene" uid="uid://c6yu1kuuci17s" path="res://summons/ApiBiru.tscn" id="11_k5im3"]
-[ext_resource type="TileSet" uid="uid://b1ohv0cteupgl" path="res://levels/bg_tileset.tres" id="12_5bdjv"]
+[ext_resource type="TileSet" uid="uid://b6ekbvw1mqim3" path="res://levels/bg_tileset.tres" id="12_5bdjv"]
 
 [sub_resource type="Curve2D" id="Curve2D_r75wo"]
 _data = {
