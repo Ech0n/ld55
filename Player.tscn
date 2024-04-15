@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddnt5es45fwtv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8ufmy"]
-[ext_resource type="PackedScene" uid="uid://dm1f8g08sushs" path="res://skeletonSprite.tscn" id="2_5gnku"]
+[ext_resource type="PackedScene" path="res://skeletonSprite.tscn" id="2_5gnku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho80f"]
 size = Vector2(13, 15)
