@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://hh4a84o0ru7a"]
+[gd_scene load_steps=22 format=3 uid="uid://hh4a84o0ru7a"]
 
 [ext_resource type="Texture2D" uid="uid://c0ow70l6h6l67" path="res://assets/aseprite/sprite_sheets/golem_attack-Sheet.png" id="1_gm2q1"]
 [ext_resource type="Script" path="res://summons/CrystalMonster.gd" id="1_sfrs6"]
 [ext_resource type="PackedScene" uid="uid://6voxwetp1ulp" path="res://summons/projectiles/HomingProjectile.tscn" id="2_u5xj4"]
 [ext_resource type="Texture2D" uid="uid://cm3d3ha01hsd8" path="res://assets/aseprite/sprite_sheets/golem-Sheet.png" id="3_pyggl"]
+[ext_resource type="Texture2D" uid="uid://dy1udlqumbbuc" path="res://assets/aseprite/Health_enemy.png" id="5_j15f5"]
+[ext_resource type="Texture2D" uid="uid://cxpsxsfe4ppij" path="res://assets/aseprite/enemy_bar.png" id="6_eea6x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8lqv"]
 atlas = ExtResource("1_gm2q1")
@@ -161,6 +163,17 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_nhf4k")
 anim_speed_min = 23.66
 anim_speed_max = 26.44
+
+[node name="healthbar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = -24.0
+offset_top = 13.0
+offset_right = -10.0
+offset_bottom = 23.0
+scale = Vector2(3.425, 3.425)
+nine_patch_stretch = true
+texture_under = ExtResource("5_j15f5")
+texture_progress = ExtResource("6_eea6x")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

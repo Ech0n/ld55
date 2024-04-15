@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c61o53qdtw60n"]
+[gd_scene load_steps=20 format=3 uid="uid://c61o53qdtw60n"]
 
 [ext_resource type="Texture2D" uid="uid://nmhdaccllbi3" path="res://assets/aseprite/ent.png" id="1_7wvc8"]
 [ext_resource type="Script" path="res://summons/TreeMonster.gd" id="1_dpbbm"]
 [ext_resource type="PackedScene" uid="uid://slwdlffmyotb" path="res://summons/projectiles/ArcingProjectile.tscn" id="2_1x3f3"]
 [ext_resource type="Texture2D" uid="uid://bbup4ym7nw5hk" path="res://assets/aseprite/ent_attack.png" id="3_0brjt"]
+[ext_resource type="Texture2D" uid="uid://dy1udlqumbbuc" path="res://assets/aseprite/Health_enemy.png" id="5_xwhxp"]
+[ext_resource type="Texture2D" uid="uid://cxpsxsfe4ppij" path="res://assets/aseprite/enemy_bar.png" id="6_lnvkl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cq1x6"]
 atlas = ExtResource("3_0brjt")
@@ -147,6 +149,17 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_nhf4k")
 anim_speed_min = 23.66
 anim_speed_max = 26.44
+
+[node name="healthbar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = -24.0
+offset_top = 13.0
+offset_right = -10.0
+offset_bottom = 23.0
+scale = Vector2(3.425, 3.425)
+nine_patch_stretch = true
+texture_under = ExtResource("5_xwhxp")
+texture_progress = ExtResource("6_lnvkl")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -5,6 +5,9 @@ signal health_change
 @onready
 var player = get_tree().get_nodes_in_group("player")[0] 
 
+@onready
+var healthbar = $healthbar
+
 var speed : float = 0.0
 
 var in_attack_range : bool = false
@@ -28,9 +31,13 @@ var infoLabel = $InfoLabel
 @onready
 var particleManager = $particler
 
+@onready
+var health_bra = $healthbar
 
 func _ready():
 	animSprite.play("walk")
+	healthbar.max_value = curr_health
+	healthbar.value = curr_health
 
 
 func update_sprite_animation():
@@ -109,6 +116,7 @@ func _on_touching_area_body_exited(body):
 func take_damage(damage : float):
 	curr_health -= damage
 	particleManager.restart()
+	healthbar.value = curr_health
 	if curr_health <= 0:
 		queue_free()
 
