@@ -1,23 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbm1cfcspuc"]
+[gd_scene load_steps=5 format=3 uid="uid://wbm1cfcspuc"]
 
-[ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="1_v4cki"]
-[ext_resource type="PackedScene" uid="uid://dreohwqmr5uey" path="res://levels/bossManWizard.tscn" id="3_xaccj"]
-[ext_resource type="PackedScene" uid="uid://2bmdm3p4j43o" path="res://levels/lavaLand.tscn" id="9_srsly"]
+[ext_resource type="Script" path="res://LevelController.gd" id="1_2scey"]
+[ext_resource type="PackedScene" uid="uid://dncbkagq5sy6r" path="res://levels/MainMenu.tscn" id="2_lkuff"]
+[ext_resource type="PackedScene" uid="uid://hmehcot8tl2d" path="res://levels/Levels.tscn" id="4_7xad7"]
+[ext_resource type="PackedScene" uid="uid://drsa1u2n1w2e" path="res://levels/intro.tscn" id="6_pt4he"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_2scey")
+levels = ExtResource("4_7xad7")
+intro = ExtResource("6_pt4he")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.8, 0.8)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
+[node name="MainMenu" parent="." instance=ExtResource("2_lkuff")]
 
-[node name="Player" parent="." instance=ExtResource("1_v4cki")]
-sword_damge = 50.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="LavaLand" parent="." instance=ExtResource("9_srsly")]
-
-[node name="BossManWizard" parent="." instance=ExtResource("3_xaccj")]
-visible = false
+[connection signal="game_started" from="MainMenu" to="." method="_on_game_started"]

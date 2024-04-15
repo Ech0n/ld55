@@ -31,8 +31,8 @@ func _on_timer_timeout():
 		return
 	print("spawning more", get_child_count())
 	
-	#var pickEnemy = enemies[randi() % enemies.size()]
-	var pickEnemy = enemies[0]
+	var pickEnemy = enemies[randi() % enemies.size()]
+	#var pickEnemy = enemies[0]
 	var p = rand_circle(screenRadius)
 	var inst = pickEnemy.instantiate()
 	inst.position = player.position + p

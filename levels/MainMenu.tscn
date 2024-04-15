@@ -1,0 +1,901 @@
+[gd_scene load_steps=23 format=3 uid="uid://dncbkagq5sy6r"]
+
+[ext_resource type="Script" path="res://levels/MainMenu.gd" id="1_druyc"]
+[ext_resource type="Texture2D" uid="uid://c132q65etnymo" path="res://assets/aseprite/wizard1_attack-Sheet.png" id="1_sg7ld"]
+[ext_resource type="PackedScene" uid="uid://dm1f8g08sushs" path="res://skeletonSprite.tscn" id="2_nrnr7"]
+[ext_resource type="Texture2D" uid="uid://t4wuj4dweefa" path="res://assets/summoning_ring.png" id="3_pqlmp"]
+[ext_resource type="Texture2D" uid="uid://dn81tr1ovu4ep" path="res://assets/torch.png" id="4_bxh3k"]
+[ext_resource type="FontFile" uid="uid://clhx60k1118kn" path="res://assets/Kurale-Regular.ttf" id="5_dj4nj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xnn4"]
+atlas = ExtResource("1_sg7ld")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jogg8"]
+atlas = ExtResource("1_sg7ld")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojpoo"]
+atlas = ExtResource("1_sg7ld")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iw3g5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xnn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jogg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojpoo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_67o8h"]
+resource_name = "main_menu"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("skelly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 8, 9, 11.5, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(209, -1), Vector2(209, -1), Vector2(446, -1), Vector2(209, -1), Vector2(209, -1), Vector2(446, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("wizard:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spawnParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.39785, 9, 11, 11.3978),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("skelly:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.25801, 8, 9, 11.258, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wandParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 9, 11, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("skelly:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5, 8, 9, 11.5, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"walk", &"idle", &"idle", &"walk", &"idle"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("wizard:speed_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(-0.1, 2.5, 9, 11.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d7alf"]
+resource_name = "startGame"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("skelly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 8, 15.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(209, -1), Vector2(209, -1), Vector2(446, -1), Vector2(800, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("wizard:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spawnParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.39785),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("skelly:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.25801),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wandParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("skelly:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"idle", &"walk"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Camera2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(387, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Army:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8, 15.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(358, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("wizard:speed_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2e0t"]
+_data = {
+"main_menu": SubResource("Animation_67o8h"),
+"startGame": SubResource("Animation_d7alf")
+}
+
+[sub_resource type="Gradient" id="Gradient_8pnan"]
+colors = PackedColorArray(0.829594, 4.96709e-05, 0.628352, 1, 0.486092, 0.303426, 1, 1)
+
+[sub_resource type="Curve" id="Curve_2kg6v"]
+min_value = -1.0
+_data = [Vector2(0, -0.428571), 0.0, 0.0, 0, 0, Vector2(1, 0.450549), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxewt"]
+font = ExtResource("5_dj4nj")
+font_size = 35
+outline_size = 5
+outline_color = Color(0.360784, 0.215686, 0.490196, 1)
+shadow_size = 6
+shadow_color = Color(0.921569, 0, 0.882353, 0.313726)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04s2o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lowfg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_376n7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gi1e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucqx4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_7unn2"]
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.941176, 0.552941, 0.945098, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("5_dj4nj")
+Button/styles/disabled = SubResource("StyleBoxFlat_04s2o")
+Button/styles/focus = SubResource("StyleBoxFlat_lowfg")
+Button/styles/hover = SubResource("StyleBoxFlat_376n7")
+Button/styles/normal = SubResource("StyleBoxFlat_5gi1e")
+Button/styles/pressed = SubResource("StyleBoxFlat_ucqx4")
+
+[node name="MainMenu" type="Node2D"]
+scale = Vector2(-1, 1)
+script = ExtResource("1_druyc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="animation" type="Node2D" parent="."]
+
+[node name="wizard" type="AnimatedSprite2D" parent="animation"]
+texture_filter = 1
+position = Vector2(156, 0)
+sprite_frames = SubResource("SpriteFrames_iw3g5")
+autoplay = "default"
+frame_progress = 0.633464
+speed_scale = 0.0
+
+[node name="skelly" parent="animation" instance=ExtResource("2_nrnr7")]
+position = Vector2(265.018, -1)
+animation = &"walk"
+autoplay = "walk"
+frame = 0
+frame_progress = 0.0
+
+[node name="SummoningRing" type="Sprite2D" parent="animation"]
+z_index = -1
+texture_filter = 1
+position = Vector2(208, 15)
+texture = ExtResource("3_pqlmp")
+
+[node name="Torch" type="Sprite2D" parent="animation"]
+z_index = -2
+texture_filter = 1
+position = Vector2(248, -22)
+texture = ExtResource("4_bxh3k")
+
+[node name="Torch2" type="Sprite2D" parent="animation"]
+texture_filter = 1
+position = Vector2(170, -24)
+texture = ExtResource("4_bxh3k")
+
+[node name="Torch3" type="Sprite2D" parent="animation"]
+texture_filter = 1
+position = Vector2(165, 44)
+texture = ExtResource("4_bxh3k")
+
+[node name="Torch4" type="Sprite2D" parent="animation"]
+texture_filter = 1
+position = Vector2(250, 45)
+texture = ExtResource("4_bxh3k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animation"]
+libraries = {
+"": SubResource("AnimationLibrary_e2e0t")
+}
+autoplay = "main_menu"
+next/main_menu = &"main_menu"
+blend_times = [&"main_menu", &"main_menu", 0.001]
+
+[node name="wandParticles" type="CPUParticles2D" parent="animation"]
+position = Vector2(161, -12)
+emitting = false
+amount = 24
+lifetime = 0.4
+speed_scale = 0.33
+direction = Vector2(1, 0.3)
+spread = 20.62
+gravity = Vector2(0, 0)
+initial_velocity_min = 104.17
+initial_velocity_max = 166.67
+angular_velocity_max = 270.0
+scale_amount_min = 0.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_8pnan")
+hue_variation_min = -0.63
+hue_variation_max = 0.39
+
+[node name="spawnParticles" type="CPUParticles2D" parent="animation"]
+position = Vector2(208, 12)
+emitting = false
+amount = 32
+lifetime = 0.5
+explosiveness = 0.28
+emission_shape = 1
+emission_sphere_radius = 9.0
+direction = Vector2(0, -1)
+spread = 20.62
+gravity = Vector2(0, 100)
+initial_velocity_min = 83.33
+initial_velocity_max = 83.33
+scale_amount_min = 2.4
+scale_amount_max = 5.4
+color = Color(1, 0, 1, 1)
+hue_variation_min = -0.15
+hue_variation_max = 0.15
+hue_variation_curve = SubResource("Curve_2kg6v")
+
+[node name="Army" type="Node2D" parent="animation"]
+
+[node name="skelly2" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(469, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly3" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(494, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly4" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(517, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly5" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(517, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly6" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(492, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly7" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(468, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly9" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(442, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly10" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(466, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly11" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(490, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly12" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(516, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly13" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(567, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly14" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(592, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly8" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(442, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly15" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(615, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly16" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(615, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly17" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(590, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly18" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(566, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly19" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(540, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly59" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(540, -2)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly20" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(540, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly21" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(564, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly22" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(588, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly23" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(614, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly24" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(662, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly25" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(687, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly26" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(710, -1)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly27" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(710, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly28" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(685, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly29" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(661, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly30" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(635, 36)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly60" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(635, 0)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly31" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(635, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly32" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(659, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly33" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(683, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly34" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(709, 71)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly35" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(442, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly36" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(466, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly37" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(490, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly38" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(516, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly39" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(540, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly40" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(564, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly41" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(588, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly42" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(614, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly43" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(635, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly44" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(659, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly45" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(683, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly46" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(709, 107)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly47" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(442, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly48" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(466, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly49" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(490, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly50" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(516, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly51" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(540, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly52" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(564, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly53" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(588, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly54" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(614, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly55" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(635, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly56" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(659, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly57" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(683, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="skelly58" parent="animation/Army" instance=ExtResource("2_nrnr7")]
+position = Vector2(709, 141)
+animation = &"idle"
+autoplay = "idle"
+frame = 0
+frame_progress = 0.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-269, 0)
+scale = Vector2(-1, 1)
+
+[node name="Control" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -254.0
+offset_top = -149.0
+offset_right = -1.0
+offset_bottom = 154.0
+
+[node name="Label" type="Label" parent="Node2D/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 12.0
+offset_right = 262.0
+offset_bottom = 73.0
+text = "Summoners Rift"
+label_settings = SubResource("LabelSettings_mxewt")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Node2D/Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 131.0
+offset_right = 203.0
+offset_bottom = 164.0
+theme = SubResource("Theme_7unn2")
+theme_override_fonts/font = ExtResource("5_dj4nj")
+text = "Play"
+
+[connection signal="animation_finished" from="animation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Node2D/Control/Button" to="." method="_on_play_button_pressed"]

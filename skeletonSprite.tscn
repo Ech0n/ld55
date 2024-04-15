@@ -131,6 +131,7 @@ animations = [{
 radius = 21.0238
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+process_mode = 3
 texture_filter = 1
 material = ExtResource("1_1mg2r")
 sprite_frames = SubResource("SpriteFrames_7d55y")
