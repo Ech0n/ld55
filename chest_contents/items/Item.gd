@@ -8,3 +8,6 @@ var itemDescription : String = "no desription"
 
 func collect(player):
 	print("item collected (Parent class)")
+
+func afterItemCollect(player):
+	player.upgrades += 1

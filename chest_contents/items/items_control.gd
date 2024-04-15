@@ -24,6 +24,9 @@ func setup(item1:Item,item2:Item):
 func _on_item_list_item_selected(index):
 	if index == 0: #armor
 		it1.collect(player)
+		it1.afterItemCollect(player)
+		
 	else: #blue
 		it2.collect(player)
+		it2.afterItemCollect(player)
 	visible = false
