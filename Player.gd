@@ -36,8 +36,9 @@ var curr_summons = []
 
 var state = "idle"
 
+
 @onready
-var summonManager = get_tree().get_root().get_node("Levels/sumonManager")
+var summonManager = get_tree().get_nodes_in_group("manager")[0]
 
 func _ready():
 	animSprite.play("idle")
