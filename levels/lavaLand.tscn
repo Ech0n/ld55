@@ -1,11 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://2bmdm3p4j43o"]
+[gd_scene load_steps=28 format=3 uid="uid://2bmdm3p4j43o"]
 
 [ext_resource type="TileSet" uid="uid://bsxek2ksnygtu" path="res://levels/myTileset.tres" id="1_0nob7"]
 [ext_resource type="Script" path="res://levels/lavaLand.gd" id="1_svco5"]
 [ext_resource type="Script" path="res://path.gd" id="2_dbxc3"]
 [ext_resource type="PackedScene" uid="uid://slm3jyju32tp" path="res://torch.tscn" id="3_ibwxe"]
 [ext_resource type="PackedScene" uid="uid://bau5s8urkw213" path="res://enemy_spawner.tscn" id="5_8pv0t"]
-[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/Slime.tscn" id="6_cr36c"]
+[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/slime.tscn" id="6_cr36c"]
 [ext_resource type="PackedScene" uid="uid://c61o53qdtw60n" path="res://summons/TreeMonster.tscn" id="7_u0cmc"]
 [ext_resource type="PackedScene" uid="uid://jh177pu1xvm8" path="res://summons/Chomper.tscn" id="8_hrpuu"]
 [ext_resource type="PackedScene" uid="uid://b7qikvm577rkw" path="res://summons/FireCreature.tscn" id="9_s3yp1"]
@@ -15,7 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://brl5luc7vpsy2" path="res://assets/summoning_ring_bluet.png" id="13_6rc2a"]
 [ext_resource type="Script" path="res://levels/BossFightPortal.gd" id="14_cc3u5"]
 [ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="16_koa8h"]
+[ext_resource type="Texture2D" uid="uid://p2n2gu5ihoc1" path="res://assets/aseprite/Health_bar.png" id="17_368b8"]
 [ext_resource type="Script" path="res://levels/NavigationZones.gd" id="17_f7mtd"]
+[ext_resource type="Texture2D" uid="uid://d22e2w28so8kf" path="res://assets/aseprite/Health.png" id="18_xwxb1"]
+[ext_resource type="Script" path="res://levels/TextureProgressBar.gd" id="19_ikrud"]
 
 [sub_resource type="Curve2D" id="Curve2D_r75wo"]
 _data = {
@@ -236,6 +239,19 @@ debug_color = Color(0.560784, 0.521569, 0.564706, 0.0745098)
 
 [node name="dest" type="Node2D" parent="NavigationZones/Area2D7"]
 position = Vector2(11499, -3482)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 431.0
+offset_top = 307.0
+offset_right = 637.0
+offset_bottom = 388.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_368b8")
+texture_progress = ExtResource("18_xwxb1")
+script = ExtResource("19_ikrud")
 
 [connection signal="_on_portal_used" from="BossFightPortal" to="." method="_on_boss_fight_portal__on_portal_used"]
 [connection signal="area_entered" from="BossFightPortal" to="BossFightPortal" method="_on_area_entered"]
