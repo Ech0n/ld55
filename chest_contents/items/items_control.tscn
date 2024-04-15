@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://chest_contents/items/items_control.gd" id="1_01moj"]
 
 [node name="ItemsControl" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,9 +35,9 @@ offset_left = 16.0
 offset_top = 65.0
 offset_right = 103.0
 offset_bottom = 170.0
-text = "More 
-defence"
+placeholder_text = "testtttttttttttttttt"
 editable = false
+wrap_mode = 1
 
 [node name="_HScrollBar_351399" type="HScrollBar" parent="ItemList/TextEdit"]
 visible = false
@@ -77,6 +76,7 @@ offset_bottom = 169.0
 text = "Faster
 attacks"
 editable = false
+wrap_mode = 1
 
 [node name="_HScrollBar_351404" type="HScrollBar" parent="ItemList/TextEdit2"]
 visible = false
