@@ -64,6 +64,7 @@ func resume_game():
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		resume_game()
+		
 
 #func display_control(controlName):
 	#var controlNode = get_node(controlName)

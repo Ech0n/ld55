@@ -5,6 +5,9 @@ var levels : PackedScene
 @export
 var intro: PackedScene
 
+@export
+var deathSplashScreen : PackedScene
+
 var introObject : Node2D
 var gameObject: Node2D
 
@@ -21,7 +24,10 @@ func intro_finished():
 	introObject.queue_free()
 	get_tree().paused = false
 	
-
+func loadLevels():
+	gameObject = levels.instantiate()
+	add_child(gameObject)
+	gameObject.connect("_on_restart_game", restartGame)
 
 func _on_game_started():
 	introObject = intro.instantiate()
@@ -30,6 +36,13 @@ func _on_game_started():
 	add_child(introObject)
 	$MainMenu.queue_free()
 	get_tree().paused = true
-	gameObject = levels.instantiate()
-	add_child(gameObject)
+	loadLevels()
 	
+func restartGame():
+	get_tree().paused = true
+	var deathSplash = deathSplashScreen.instantiate()
+	add_child(deathSplash)
+	
+	gameObject.queue_free()
+	await gameObject.tree_exited
+	loadLevels()
