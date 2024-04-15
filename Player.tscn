@@ -1,10 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddnt5es45fwtv"]
+[gd_scene load_steps=9 format=3 uid="uid://ddnt5es45fwtv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8ufmy"]
 [ext_resource type="PackedScene" uid="uid://dm1f8g08sushs" path="res://skeletonSprite.tscn" id="2_5gnku"]
-[ext_resource type="Texture2D" uid="uid://p2n2gu5ihoc1" path="res://assets/aseprite/Health_bar.png" id="4_i1sn0"]
-[ext_resource type="Texture2D" uid="uid://d22e2w28so8kf" path="res://assets/aseprite/Health.png" id="5_i0ww0"]
-[ext_resource type="Script" path="res://TextureProgressBar.gd" id="6_2f0og"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho80f"]
 size = Vector2(13, 15)
@@ -34,6 +31,7 @@ gradient = SubResource("Gradient_xe71b")
 width = 3
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+process_mode = 1
 collision_layer = 6
 collision_mask = 5
 safe_margin = 2.366
@@ -47,7 +45,8 @@ position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_ho80f")
 
 [node name="pickupArea" type="Area2D" parent="."]
-collision_mask = 65
+collision_layer = 2049
+collision_mask = 2113
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickupArea"]
 position = Vector2(0, 3)
@@ -67,19 +66,8 @@ position = Vector2(-7, 16)
 process_material = SubResource("ParticleProcessMaterial_lpwx5")
 texture = SubResource("GradientTexture1D_43der")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-texture_filter = 1
-offset_left = -21.0
-offset_top = 12.0
-offset_right = -10.0
-offset_bottom = 23.0
-scale = Vector2(3.425, 3.425)
-nine_patch_stretch = true
-texture_under = ExtResource("4_i1sn0")
-texture_progress = ExtResource("5_i0ww0")
-script = ExtResource("6_2f0og")
-
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[connection signal="area_entered" from="pickupArea" to="." method="_on_area_area_entered"]
 [connection signal="body_entered" from="pickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="body_exited" from="pickupArea" to="." method="_on_pickup_area_body_exited"]

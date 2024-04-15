@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://hmehcot8tl2d"]
+
+[ext_resource type="Script" path="res://levels/worldManager.gd" id="1_r8o2h"]
+[ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="1_vtqh4"]
+[ext_resource type="PackedScene" uid="uid://2bmdm3p4j43o" path="res://levels/lavaLand.tscn" id="2_pror3"]
+[ext_resource type="Script" path="res://levels/SummonMangager.gd" id="5_2x1ex"]
+
+[node name="Levels" type="Node2D"]
+process_mode = 1
+texture_filter = 1
+script = ExtResource("1_r8o2h")
+
+[node name="sumonManager" type="Node2D" parent="." groups=["manager"]]
+script = ExtResource("5_2x1ex")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="LavaLand" parent="." instance=ExtResource("2_pror3")]
+
+[node name="Player" parent="." instance=ExtResource("1_vtqh4")]
+dash_time = 0.3
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[connection signal="_on_portal_used" from="LavaLand" to="." method="_on_lava_land__on_portal_used"]
+[connection signal="_on_dead" from="Player" to="." method="_on_player__on_dead"]
