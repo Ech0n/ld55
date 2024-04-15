@@ -180,10 +180,7 @@ func delete_summon(summon):
 
 func add_summon(smn):
 	summonManager.summon(smn)
-	
-	if len(curr_summons) == 3:
-		return
-	#curr_summons.append(smn)
+
 
 var gpsDest = null
 

@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://cubfx5bxnd475"]
+
+[ext_resource type="Texture2D" uid="uid://b3pkppdvggg4w" path="res://assets/splash.png" id="1_dbqd1"]
+[ext_resource type="FontFile" uid="uid://clhx60k1118kn" path="res://assets/Kurale-Regular.ttf" id="2_38uht"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qq7wa"]
+font = ExtResource("2_38uht")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_hr725"]
+font = ExtResource("2_38uht")
+font_size = 55
+
+[node name="Credits" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -215.0
+offset_top = -145.0
+offset_right = 213.0
+offset_bottom = 149.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.081
+anchor_bottom = 1.061
+offset_left = -246.0
+offset_top = -129.0
+offset_right = 231.332
+offset_bottom = 119.066
+texture = ExtResource("1_dbqd1")
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 155.0
+offset_right = 433.0
+offset_bottom = 317.0
+text = "by:
+@yopin
+@pauldee427
+toy
+@matid90"
+label_settings = SubResource("LabelSettings_qq7wa")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 433.0
+offset_bottom = 179.0
+text = "Summoners Rift"
+label_settings = SubResource("LabelSettings_hr725")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 38.0
+offset_right = 433.0
+offset_bottom = 73.0
+text = "thank you for playing ..."
+label_settings = SubResource("LabelSettings_qq7wa")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]

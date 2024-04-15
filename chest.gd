@@ -13,6 +13,7 @@ var items : Array[Item]=[
 	Book1.new(),
 	Book2.new(),
 	Book3.new(),
+	Book4.new(),
 	Milk.new(),
 	Red.new(),
 	Shoes.new(),
@@ -24,6 +25,14 @@ func _ready():
 	
 var controlInstance : Control
 
+func pickRandomItem():
+	var randIt =  items.pick_random()
+	if(randIt.itemName == "Holy book"):
+		randIt =  items.pick_random()
+	if(randIt.itemName == "Holy book"):
+		randIt =  items.pick_random()
+	return randIt
+
 func random_items():
 	print("\nChest detected")
 	
@@ -31,10 +40,12 @@ func random_items():
 	#var eye_summon := EyeSummon.new_summon(1) # 1 is index, there will be only 3 slots for summons
 	#get_tree().get_root().add_child(eye_summon)
 	
-	var item1 = items.pick_random()
-	var item2 = items.pick_random()
+	var item1 = pickRandomItem()
+	var item2 = pickRandomItem()
 	while item1 == item2:
-		item2 = items.pick_random()
+		item2 = pickRandomItem()
+		
+
 		
 	controlInstance = itemControl.instantiate()
 	controlInstance.setup(item1,item2)

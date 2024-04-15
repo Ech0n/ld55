@@ -10,13 +10,16 @@ var i = 0
 
 func summon(ally):
 	print("recieved ally ")
-	if i <= 3:
-		summons.push_back(ally)
-		ally.position = player.position
-		add_child(ally)
-		var sumonCircle = Sprite2D.new()
-		sumonCircle.texture = summoningCircleTexture
-		sumonCircle.position = player.position
-		add_child(sumonCircle)
-		i+=1
+	if i > 2:
+		summons[0].queue_free()
+		summons.pop_front()
+		
+	summons.push_back(ally)
+	ally.position = player.position
+	add_child(ally)
+	var sumonCircle = Sprite2D.new()
+	sumonCircle.texture = summoningCircleTexture
+	sumonCircle.position = player.position
+	add_child(sumonCircle)
+	i+=1
 		

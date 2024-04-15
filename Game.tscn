@@ -16,6 +16,7 @@ deathSplashScreen = ExtResource("4_dn0o6")
 [node name="MainMenu" parent="." instance=ExtResource("2_lkuff")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_45dg4")
 autoplay = true
 

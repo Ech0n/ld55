@@ -1,7 +1,7 @@
 class_name Book1
 extends Item
 
-var golem = load("res://summons/summon.tscn").instantiate()
+var golem = load("res://summons/GolemSummon.tscn").instantiate()
 
 
 func _init():
