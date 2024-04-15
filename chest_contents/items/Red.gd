@@ -7,4 +7,8 @@ func _init():
 	itemDescription = "Restore some of your health"
 
 func collect(player):
-	player.curr_health += 50
+	
+	if player.curr_health + 50 > player.max_health:
+		player.curr_health = player.max_health
+	else:
+		player.curr_health += 50

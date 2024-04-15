@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://slm3jyju32tp" path="res://torch.tscn" id="3_ibwxe"]
 [ext_resource type="PackedScene" uid="uid://dr7llyqut1o80" path="res://gps_arrow.tscn" id="4_0y4xm"]
 [ext_resource type="PackedScene" uid="uid://bau5s8urkw213" path="res://enemy_spawner.tscn" id="5_8pv0t"]
-[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/Slime.tscn" id="6_cr36c"]
+[ext_resource type="PackedScene" uid="uid://is1q5c8t0k4s" path="res://summons/slime.tscn" id="6_cr36c"]
 [ext_resource type="PackedScene" uid="uid://c61o53qdtw60n" path="res://summons/TreeMonster.tscn" id="7_u0cmc"]
 [ext_resource type="PackedScene" uid="uid://jh177pu1xvm8" path="res://summons/Chomper.tscn" id="8_hrpuu"]
 [ext_resource type="PackedScene" uid="uid://b7qikvm577rkw" path="res://summons/FireCreature.tscn" id="9_s3yp1"]
@@ -35,7 +35,7 @@ torch = ExtResource("3_ibwxe")
 gpsArrow = ExtResource("4_0y4xm")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_8pv0t")]
-max_enemies = 15
+max_enemies = 0
 enemies = Array[PackedScene]([ExtResource("6_cr36c"), ExtResource("7_u0cmc"), ExtResource("8_hrpuu"), ExtResource("9_s3yp1"), ExtResource("10_dy01v"), ExtResource("11_k5im3")])
 
 [node name="bgtiles" type="TileMap" parent="." groups=["env"]]

@@ -1,7 +1,7 @@
 class_name Book1
 extends Item
 
-var angel = load("res://summons/summon.tscn").instantiate()
+var golem = load("res://summons/summon.tscn").instantiate()
 
 
 func _init():
@@ -10,4 +10,4 @@ func _init():
 	itemDescription = "Summon new friend"
 	
 func collect(player):
-	player.add_summon(angel)
+	player.add_summon(golem)
