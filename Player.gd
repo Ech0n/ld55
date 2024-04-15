@@ -24,7 +24,8 @@ var curr_health = 100.0
 var curr_attack_cooldown = 0
 @export_range(1,200,1) var sword_damge = 35.0
 var dmg_reduction = 1
-@export var dash_distance = 100
+@export var dash_time :float = 0.2
+
 @export var dashSpeed = 3
 var dash_cooldown = 0.2
 var curr_summons = []
@@ -46,9 +47,8 @@ func update_sprite_animation(xVelocity):
 		animSprite.scale.x = 1
 
 var attackTimer = 100
-var dashTimer = 100
+var dashTimer : float = 0.0
 
-var dashStartPos = 0
 var dashDir = Vector2(1,0)
 var lastDashPos: Vector2
 
@@ -86,21 +86,21 @@ func _physics_process(delta):
 			attack()
 			attackTimer = 0
 	if(state == "dash"):
+		dashTimer+= delta
 		velocity = dashDir.normalized() * SPEED * dashSpeed
 		animSprite.play("dash")
-		lastDashPos = position
-		if position.distance_to(dashStartPos) > dash_distance:
-			dashTimer = 0
+		if dashTimer > dash_time:
 			state = 'idle'
 			animSprite.play("idle")
 			velocity = Vector2.ZERO
 			set_collision_mask_value(1,true)		
+			set_collision_mask_value(3,true)
 
 	
 	if attackTimer < attack_cooldown:
 		attackTimer +=delta
-	if dashTimer < dash_cooldown:
-		dashTimer +=delta
+		
+	dashTimer +=delta
 		
 	move_and_slide()
 	update_health_label()
@@ -118,15 +118,16 @@ func update_health_label():
 	healthLabel.position = Vector2(0, -50)
 
 func getDashInput():
-	if(dashTimer<dash_cooldown):
+	if(dashTimer<dash_cooldown+dash_time):
 		return false
 	var d = Input.is_action_just_pressed("dash")
 	if d:
+		dashTimer = 0
 		set_collision_mask_value(1,false)
+		set_collision_mask_value(3,false)
 		dashDir = Vector2( Input.get_axis("left", "right"), Input.get_axis("up","down"))
 		if dashDir == Vector2.ZERO:
 			dashDir = Vector2(animSprite.scale.x,0)
-		dashStartPos = position
 	return d
 	
 
