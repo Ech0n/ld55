@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://2bmdm3p4j43o"]
+[gd_scene load_steps=23 format=3 uid="uid://2bmdm3p4j43o"]
 
 [ext_resource type="TileSet" uid="uid://bsxek2ksnygtu" path="res://levels/myTileset.tres" id="1_0nob7"]
 [ext_resource type="Script" path="res://levels/lavaLand.gd" id="1_svco5"]
@@ -15,6 +15,10 @@
 [ext_resource type="TileSet" uid="uid://b6ekbvw1mqim3" path="res://levels/bg_tileset.tres" id="12_5bdjv"]
 [ext_resource type="Texture2D" uid="uid://brl5luc7vpsy2" path="res://assets/summoning_ring_bluet.png" id="13_6rc2a"]
 [ext_resource type="Script" path="res://levels/BossFightPortal.gd" id="14_cc3u5"]
+[ext_resource type="Texture2D" uid="uid://p2n2gu5ihoc1" path="res://assets/aseprite/Health_bar.png" id="16_cg4el"]
+[ext_resource type="Texture2D" uid="uid://d22e2w28so8kf" path="res://assets/aseprite/Health.png" id="17_ylh41"]
+[ext_resource type="Script" path="res://TextureProgressBar.gd" id="18_mm28u"]
+[ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="19_5eykq"]
 
 [sub_resource type="Curve2D" id="Curve2D_r75wo"]
 _data = {
@@ -84,6 +88,87 @@ offset_bottom = 25.0
 text = "press F to fight summoner Boss"
 label_settings = SubResource("LabelSettings_7uoe4")
 horizontal_alignment = 1
+
+[node name="Health bar" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Health bar"]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.525
+anchor_top = 0.557
+anchor_right = 0.525
+anchor_bottom = 0.557
+offset_left = 182.0
+offset_top = 103.48
+offset_right = 216.0
+offset_bottom = 124.48
+scale = Vector2(3.425, 3.425)
+nine_patch_stretch = true
+texture_under = ExtResource("16_cg4el")
+texture_progress = ExtResource("17_ylh41")
+script = ExtResource("18_mm28u")
+
+[node name="Chests" type="Node2D" parent="."]
+
+[node name="Main_chest" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(158, 34)
+
+[node name="Main_chest2" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(-209, -190)
+
+[node name="Main_chest3" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(533, -501)
+
+[node name="Main_chest4" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(-414, 152)
+
+[node name="Main_chest5" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(1007, -159)
+
+[node name="Main_chest6" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(1774, -769)
+
+[node name="Main_chest7" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(2587, -654)
+
+[node name="Main_chest8" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(1473, 72)
+
+[node name="Main_chest9" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(4523, -1543)
+
+[node name="Main_chest10" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(4077, -2325)
+
+[node name="Main_chest11" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(5787, -3658)
+
+[node name="Main_chest12" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(7345, -3533)
+
+[node name="Main_chest13" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(10438, -3604)
+
+[node name="Main_chest14" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(10468, -3137)
+
+[node name="Main_chest15" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(8316, -3640)
+
+[node name="Main_chest16" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(3628, -1836)
+
+[node name="Main_chest17" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(4492, -3309)
+
+[node name="Main_chest18" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(5151, -2763)
+
+[node name="Main_chest19" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(5981, -3115)
+
+[node name="Main_chest20" parent="Chests" instance=ExtResource("19_5eykq")]
+position = Vector2(6581, -3895)
 
 [connection signal="_on_portal_used" from="BossFightPortal" to="." method="_on_boss_fight_portal__on_portal_used"]
 [connection signal="area_entered" from="BossFightPortal" to="BossFightPortal" method="_on_area_entered"]

@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+signal health_change
+
 @onready
 var player = get_tree().get_nodes_in_group("player")[0] 
 
@@ -47,8 +50,7 @@ func attack_player(): # This has to be overriden in order to work for ranged ene
 
 
 func _physics_process(delta):
-	infoLabel.text = "Touching uwu: %d" % (1 if touching_monster else 0)
-	infoLabel.position = Vector2(-50, -50)
+	health_change.emit()
 	
 	if player:
 		if in_attack_range:

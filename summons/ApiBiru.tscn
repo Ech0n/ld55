@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6yu1kuuci17s"]
+[gd_scene load_steps=21 format=3 uid="uid://c6yu1kuuci17s"]
 
 [ext_resource type="Script" path="res://summons/ApiBiru.gd" id="1_8ty3e"]
 [ext_resource type="PackedScene" uid="uid://dl414vqhvkixb" path="res://summons/projectiles/FireProjectile.tscn" id="2_ocqyx"]
 [ext_resource type="Texture2D" uid="uid://krqae0eyubgx" path="res://assets/aseprite/sprite_sheets/apibiru_attack-Sheet.png" id="3_uaahf"]
 [ext_resource type="Texture2D" uid="uid://cunbmbem7ovip" path="res://assets/aseprite/sprite_sheets/apiburu-Sheet.png" id="4_b8vae"]
+[ext_resource type="Texture2D" uid="uid://dy1udlqumbbuc" path="res://assets/aseprite/Health_enemy.png" id="5_7b8qi"]
+[ext_resource type="Texture2D" uid="uid://cxpsxsfe4ppij" path="res://assets/aseprite/enemy_bar.png" id="6_okfby"]
+[ext_resource type="Script" path="res://TextureProgressBar.gd" id="7_854am"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8nrw"]
 atlas = ExtResource("3_uaahf")
@@ -146,6 +149,18 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_nhf4k")
 anim_speed_min = 23.66
 anim_speed_max = 26.44
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = -24.0
+offset_top = 13.0
+offset_right = -10.0
+offset_bottom = 23.0
+scale = Vector2(3.425, 3.425)
+nine_patch_stretch = true
+texture_under = ExtResource("5_7b8qi")
+texture_progress = ExtResource("6_okfby")
+script = ExtResource("7_854am")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
