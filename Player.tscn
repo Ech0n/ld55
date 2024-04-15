@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddnt5es45fwtv"]
+[gd_scene load_steps=13 format=3 uid="uid://ddnt5es45fwtv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8ufmy"]
 [ext_resource type="PackedScene" uid="uid://dm1f8g08sushs" path="res://skeletonSprite.tscn" id="2_5gnku"]
+[ext_resource type="AudioStream" path="res://sounds/walk1.mp3" id="3_546kw"]
+[ext_resource type="AudioStream" path="res://sounds/swoosh.mp3" id="4_4p3hv"]
+[ext_resource type="AudioStream" path="res://sounds/swoosh2.mp3" id="5_x542w"]
+[ext_resource type="AudioStream" path="res://sounds/hit.mp3" id="6_0yg07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho80f"]
 size = Vector2(13, 15)
@@ -65,6 +69,22 @@ curve = SubResource("Curve2D_jreu5")
 position = Vector2(-7, 16)
 process_material = SubResource("ParticleProcessMaterial_lpwx5")
 texture = SubResource("GradientTexture1D_43der")
+
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_546kw")
+volume_db = 3.0
+
+[node name="dash_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4p3hv")
+volume_db = 3.0
+
+[node name="sword_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_x542w")
+volume_db = 3.0
+
+[node name="dmg_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0yg07")
+volume_db = 4.981
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
