@@ -35,10 +35,9 @@ func _on_timer_timeout():
 	var findIndexOfStrongestPossibleEnemy :int  = 0
 	while findIndexOfStrongestPossibleEnemy < unlockLevel.size() and unlockLevel[findIndexOfStrongestPossibleEnemy] < player.upgrades:
 		findIndexOfStrongestPossibleEnemy += 1
-	var randInd =  randi_range(0,findIndexOfStrongestPossibleEnemy)
+	var randInd =  randi_range(0,min(findIndexOfStrongestPossibleEnemy,enemies.size()-1))
 	var pickEnemy = enemies[randInd]
 	
-	print(" plu: ",player.upgrades, "mx: ",findIndexOfStrongestPossibleEnemy," spawniong index: ",randInd, pickEnemy)
 	#var pickEnemy = enemies[0]
 	var p = rand_circle(screenRadius)
 	var inst = pickEnemy.instantiate()

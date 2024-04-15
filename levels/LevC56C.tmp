@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://hmehcot8tl2d"]
+
+[ext_resource type="Script" path="res://levels/worldManager.gd" id="1_r8o2h"]
+[ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="1_vtqh4"]
+[ext_resource type="PackedScene" uid="uid://2bmdm3p4j43o" path="res://levels/lavaLand.tscn" id="2_pror3"]
+[ext_resource type="PackedScene" uid="uid://bl2c7888pjs7b" path="res://chest.tscn" id="3_jj5je"]
+[ext_resource type="Script" path="res://levels/SummonMangager.gd" id="5_2x1ex"]
+
+[node name="Levels" type="Node2D"]
+process_mode = 1
+texture_filter = 1
+script = ExtResource("1_r8o2h")
+
+[node name="sumonManager" type="Node2D" parent="." groups=["manager"]]
+script = ExtResource("5_2x1ex")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="LavaLand" parent="." instance=ExtResource("2_pror3")]
+
+[node name="Player" parent="." instance=ExtResource("1_vtqh4")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Chests" type="Node2D" parent="."]
+
+[node name="Main_chest" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(158, 34)
+
+[node name="Main_chest2" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(-209, -190)
+
+[node name="Main_chest3" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(533, -501)
+
+[node name="Main_chest4" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(-414, 152)
+
+[node name="Main_chest5" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(1015, -137)
+
+[node name="Main_chest6" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(1774, -769)
+
+[node name="Main_chest7" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(2587, -654)
+
+[node name="Main_chest8" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(1473, 72)
+
+[node name="Main_chest9" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(4523, -1543)
+
+[node name="Main_chest10" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(4077, -2325)
+
+[node name="Main_chest11" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(5787, -3658)
+
+[node name="Main_chest12" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(7345, -3533)
+
+[node name="Main_chest13" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(10438, -3604)
+
+[node name="Main_chest14" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(10468, -3137)
+
+[node name="Main_chest15" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(8316, -3640)
+
+[node name="Main_chest16" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(3628, -1836)
+
+[node name="Main_chest17" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(4492, -3309)
+
+[node name="Main_chest18" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(5151, -2763)
+
+[node name="Main_chest19" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(5981, -3115)
+
+[node name="Main_chest20" parent="Chests" instance=ExtResource("3_jj5je")]
+position = Vector2(6581, -3895)
+
+[connection signal="_on_portal_used" from="LavaLand" to="." method="_on_lava_land__on_portal_used"]
+[connection signal="_on_dead" from="Player" to="." method="_on_player__on_dead"]
