@@ -27,7 +27,7 @@ var max_health = 100.0
 var curr_health = 100.0
 var curr_attack_cooldown = 0
 @export_range(1,200,1) var sword_damge = 35.0
-var dmg_reduction = 1
+var dmg_reduction = 1.0
 @export var dash_time :float = 0.2
 
 @export var dashSpeed = 3

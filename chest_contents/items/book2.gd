@@ -5,7 +5,7 @@ var angel = load("res://summons/EyeSummon.tscn").instantiate()
 
 
 func _init():
-	itemName = "Book 2"
+	itemName = "Occult Book"
 	texture = load("res://assets/aseprite/Items/book2.png")
 	itemDescription = "Summon new friend"
 func collect(player):

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/gpsWizardTracker.gd" id="1_n10md"]
 [ext_resource type="TileSet" uid="uid://bsxek2ksnygtu" path="res://levels/myTileset.tres" id="1_ryuxp"]
-[ext_resource type="PackedScene" path="res://summons/Wizard.tscn" id="2_fdktc"]
+[ext_resource type="PackedScene" uid="uid://sbx1fmmbn57t" path="res://summons/Wizard.tscn" id="2_fdktc"]
 [ext_resource type="TileSet" uid="uid://b6ekbvw1mqim3" path="res://levels/bg_tileset.tres" id="3_x8g4k"]
 [ext_resource type="PackedScene" uid="uid://ddnt5es45fwtv" path="res://Player.tscn" id="4_d6x7k"]
 [ext_resource type="Texture2D" uid="uid://t4wuj4dweefa" path="res://assets/summoning_ring.png" id="6_8atcx"]
